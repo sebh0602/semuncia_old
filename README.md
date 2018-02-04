@@ -7,6 +7,6 @@ Once finished it will be...
 transaction whenever you spend or earn money and see the informative statistics
 on your spending habits before your eyes.
 
-## Filesystem
+## filesystem
 * poc - proofs of concept
-* docs - documentation 
+* docs - documentation
