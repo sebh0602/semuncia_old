@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue To Do</title>
+	<meta charset="UTF-8">
+	<meta name="theme-color" content="#000555">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="vue.js"></script><!--Use vue.min.js for prod and vue.js for dev-->
+</head>
+
+<body>
+	<div id="app">
+		<h1 v-bind:title="myTitle">{{myTitle}}</h1>
+		<ul>
+			<li v-for="todo in todos" v-bind:title="'Length: ' + todo.text.length"> <!--Creates a li for every element-->
+				{{todo.text}}
+			</li>
+			<li v-if="newTodo.length"> <!--Determines visibility-->
+				<em>Preview: </em> {{newTodo}}
+			</li>
+		</ul>
+		<div><em>Number of items:</em> {{todos.length}}</div>
+		<input v-model="newTodo" v-on:keyup.enter="saveItem"> <!--v-model is the variable the input is bound to-->
+		<button v-on:click="saveItem">Save</button>
+	</div>
+	<script>
+	var app = new Vue({
+		el:"#app",
+		data:{
+			myTitle: "Vue To Do",
+			todos: [],
+			newTodo:""
+		},
+		methods:{
+			saveItem: function(){
+				this.todos.push({text:this.newTodo});
+				this.newTodo = "";
+			}
+		}
+	});
+	</script>
+</body>
+
+</html>
