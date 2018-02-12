@@ -18,6 +18,7 @@ This list of features is neither binding, nor finished. Finished items will be
 * Different tabs/accounts/folders/budgets
 * Search through transactions
 * Scheduled transactions
+* Make it duo/multi-lingual with all the strings saved in a separate JSON file
 
 ## features (back-end)
 In this case, back-end refers to anything an average user wouldn't need to

@@ -7,38 +7,83 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="vue.js"></script><!--Use vue.min.js for prod and vue.js for dev-->
+
+	<style>
+		html,body{font-family: Arial, Verdana, sans-serif;margin:0px}
+
+		#app h1{margin-top: 0px;}
+		#app ul{padding-left: 0px;}
+		#app li{font-size:20px;padding-top:14px;padding-bottom: 14px;list-style-type: none;padding-left:20px;padding-right: 20px;}
+		#app li.todo-item:hover{background-color: #FFAAAA;}
+		#app{width:500px;margin:auto;border:5px solid black;padding:30px;}
+		@media screen and (max-width: 600px){
+			#app{width:90%;border:none;padding:2.5%;margin:2.5%;}
+		}
+	</style>
 </head>
 
 <body>
 	<div id="app">
 		<h1 v-bind:title="myTitle">{{myTitle}}</h1>
 		<ul>
-			<li v-for="todo in todos" v-bind:title="'Length: ' + todo.text.length"> <!--Creates a li for every element-->
-				{{todo.text}}
-			</li>
-			<li v-if="newTodo.length"> <!--Determines visibility-->
+			<todo-item v-for="todo in todos" v-bind:text="todo.text" v-bind:key="todo.id" @click="deleteItem(todo.id)"></todo-item> <!--v-for creates a todo-item for every element-->
+
+			<li v-if="newTodo.length" @click="deleteItem(8)"> <!--Determines visibility-->
 				<em>Preview: </em> {{newTodo}}
 			</li>
 		</ul>
 		<div><em>Number of items:</em> {{todos.length}}</div>
-		<input v-model="newTodo" v-on:keyup.enter="saveItem"> <!--v-model is the variable the input is bound to-->
+		<input v-model="newTodo" v-on:keyup.enter="saveItem" v-on:keyup="saveText"> <!--v-model is the variable the input is bound to-->
 		<button v-on:click="saveItem">Save</button>
 	</div>
 	<script>
+	Vue.component("todo-item",{
+		props: ["text"], //prop is a custom attribute
+		template: "<li v-bind:title='\"Length: \" + text.length' @click='handleClick' class='todo-item'>{{text}}</li>",
+		methods:{
+			handleClick: function(){
+				this.$emit("click")
+			}
+		}
+	});
+
 	var app = new Vue({
 		el:"#app",
 		data:{
 			myTitle: "Vue To Do",
 			todos: [],
-			newTodo:""
+			newTodo:"",
+			idIterator:0
 		},
 		methods:{
 			saveItem: function(){
-				this.todos.push({text:this.newTodo});
+				this.todos.push({text:this.newTodo, id:this.idIterator});
+				this.idIterator += 1;
 				this.newTodo = "";
+				localStorage.data = JSON.stringify(this.$root.$data);
+			},
+			deleteItem: function(id){
+				for (var i = 0; i < this.todos.length; i++){
+					if (this.todos[i].id == id){
+						if (confirm("Do you really want to delete '" + this.todos[i].text + "'?"))
+						this.todos.splice(i,1); //1 is the number of elements to remove
+						break;
+					}
+				}
+				localStorage.data = JSON.stringify(this.$root.$data);
+			},
+			saveText: function(){
+				localStorage.data = JSON.stringify(this.$root.$data);
 			}
 		}
 	});
+	var myData;
+	if (localStorage.data){
+		myData = JSON.parse(localStorage.data);
+		app.idIterator = myData.idIterator;
+		app.todos = myData.todos;
+		app.newTodo = myData.newTodo;
+	}
 	</script>
 </body>
 
