@@ -4,6 +4,7 @@
 	<title>Vue To Do</title>
 	<meta charset="UTF-8">
 	<meta name="theme-color" content="#000888">
+	<link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -23,7 +24,7 @@
 			#app{width:800px;}
 		}
 
-		#app h1{margin-top: 0px;}
+		#app h1{margin-top: 0px;font-size: 30px;margin-right: 10px}
 		#app ul{padding-left: 0px;}
 		#app li{font-size:20px;padding-top:14px;padding-bottom: 14px;list-style-type: none;padding-left:20px;padding-right: 20px;}
 		#app li.todo-item:hover{background-color: #AAAFFF;}
@@ -33,17 +34,27 @@
 		#app div{font-size: 20px;}
 		#app div.flex{display:flex;}
 		#app #itemCount{margin-bottom:10px;}
+		#app #icon{width:30px;height:30px;}
+		#app #title{justify-content: space-between;}
 
 	</style>
 </head>
 
 <body>
+	<noscript>
+		JavaScript has to be enabled for this application to work.
+		<style>#app{display: none;}</style>
+	</noscript>
+
 	<div id="app">
-		<h1 v-bind:title="myTitle">{{myTitle}}</h1>
+		<div class="flex" id="title">
+			<h1 v-bind:title="myTitle">{{myTitle}}</h1>
+			<img id="icon" src="favicon.ico">
+		</div>
 		<ul>
 			<todo-item v-for="todo in todos" v-bind:text="todo.text" v-bind:key="todo.id" @click="deleteItem(todo.id)"></todo-item> <!--v-for creates a todo-item for every element-->
 
-			<li v-if="newTodo.length" @click="deleteItem(8)"> <!--Determines visibility-->
+			<li v-if="newTodo.length"> <!--Determines visibility-->
 				<em>Preview: </em> {{newTodo}}
 			</li>
 		</ul>
