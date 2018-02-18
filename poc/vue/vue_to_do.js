@@ -1,9 +1,26 @@
-Vue.component("todo-item",{
-	props: ["text"], //prop is a custom attribute
-	template: "<li v-bind:title='\"Length: \" + text.length' @click='handleClick' class='todo-item'>{{text}}</li>",
+Vue.component("itemText", {
+	props:["todo"],
+	template:"<div v-bind:title='\"Length: \" + todo.text.length' class='itemText'>{{todo.text}}</div>"
+}
+);
+
+Vue.component("deleteButton",{
+	props:["todo"],
+	template:"<div class='deleteButton' v-on:click='handleClick'>X</div>",
 	methods:{
 		handleClick: function(){
-			this.$emit("click")
+			this.$emit("delete-click",this.todo.id);
+		}
+	}
+}
+);
+
+Vue.component("todo-item",{
+	props: ["todo"], //prop is a custom attribute
+	template: "<div class='listItem flex'><itemText v-bind:todo='todo'></itemText><deleteButton v-bind:todo='todo' @delete-click='passOnDeleteClick'></deleteButton></div>",
+	methods:{
+		passOnDeleteClick: function(id){
+			this.$emit("delete-click",id);
 		}
 	}
 });
