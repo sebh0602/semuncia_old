@@ -8,4 +8,4 @@ easily be saved to the machine or sent to the server if the user desires to do
 so.
 
 ## back-end
-The back end will (probably) be a nodejs server.
+The back end will (probably) be a nginx server with nodejs.

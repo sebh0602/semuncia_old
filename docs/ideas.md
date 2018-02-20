@@ -6,7 +6,7 @@ exist.
 ## platform
 I want this software to be cross-platform compatible with a html/css/javascript
 webinterface ported to different platforms, such as Windows (Electron) and
-Android (Cordova/React Native)
+Android (Cordova)
 
 ## features (front-end)
 This list of features is neither binding, nor finished. Finished items will be
@@ -19,6 +19,7 @@ This list of features is neither binding, nor finished. Finished items will be
 * Search through transactions
 * Scheduled transactions
 * Make it duo/multi-lingual with all the strings saved in a separate JSON file
+* Different languages (using vue.js and a json object)
 
 ## features (back-end)
 In this case, back-end refers to anything an average user wouldn't need to
