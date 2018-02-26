@@ -1,12 +1,12 @@
 Vue.component("itemText", {
 	props:["todo"],
-	template:"<div v-bind:title='\"Length: \" + todo.text.length' class='itemText'>{{todo.text}}</div>"
+	template:"<div v-bind:title='\"Length: \" + todo.text.length' class='itemText'>{{todo.text}}</div>" //v-bind:title = :title
 }
 );
 
 Vue.component("deleteButton",{
 	props:["todo"],
-	template:"<div class='deleteButton' v-on:click='handleClick'>X</div>",
+	template:"<div class='deleteButton' v-on:click='handleClick'><img src='images/trash_256.png'></div>", //v-on:click = @click;
 	methods:{
 		handleClick: function(){
 			this.$emit("delete-click",this.todo.id);
@@ -25,13 +25,24 @@ Vue.component("todo-item",{
 	}
 });
 
+var data = {
+	myTitle: "Vue To Do",
+	todos: [],
+	newTodo:"",
+	idIterator:0,
+	overlay:false
+};
+
 var app = new Vue({
 	el:"#app",
-	data:{
-		myTitle: "Vue To Do",
-		todos: [],
-		newTodo:"",
-		idIterator:0
+	data:data,
+	mounted: function(){ //so it doesn't display the weird vue-less html
+		document.getElementById("app").style.display = "block";
+	},
+	computed:{
+		numberOfTodos: function(){
+			return this.todos.length;
+		}
 	},
 	methods:{
 		saveItem: function(){
@@ -51,6 +62,11 @@ var app = new Vue({
 			localStorage.data = JSON.stringify(this.$root.$data);
 		},
 		saveText: function(){
+			localStorage.data = JSON.stringify(this.$root.$data);
+		},
+		deleteAll: function(){
+			this.todos = [];
+			this.overlay = false;
 			localStorage.data = JSON.stringify(this.$root.$data);
 		}
 	}
