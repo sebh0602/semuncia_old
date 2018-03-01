@@ -55,7 +55,6 @@
 		#app #deleteAllOverlay #deleteAllDialog{justify-content: space-around;flex-wrap: wrap;}
 		#app #deleteAllOverlay #deleteAllDialog div.text{width: 100%;}
 		#app #deleteAllOverlay #deleteAllDialog button{width: 25%;margin-top: 20px;}
-		#app #deleteAllOverlay #deleteAllDialog button.yes{background-color: #870000;}
 
 
 		/*List*/
@@ -63,8 +62,9 @@
 		#app #list{margin-top:20px;margin-bottom: 20px;}
 		#app #list div.listItem{justify-content: space-between;}
 		#app #list div.itemText{font-size:20px;padding-top:14px;padding-bottom: 14px;list-style-type: none;padding-left:20px;padding-right:20px;}
+		#app #list div.deleteButton{border-radius: 24px;height:20px; width: 20px;padding:14px;}
 		#app #list div.deleteButton:hover{background-color: #AAAFFF;}
-		#app #list div.deleteButton img{height:48px; width: 48px;}
+		#app #list div.deleteButton img{width:100%;height:100%;}
 
 
 		/*Item counter*/
@@ -94,16 +94,17 @@
 		<div id="deleteAllOverlay" v-bind:class="{'visible':overlay}">
 			<div id="deleteAllDialog" class="flex">
 				<div class="text">Do you really want to delete all of your todos?</div>
-				<button class="yes" onclick="app.deleteAll();">Yes</button>
+				<button :style="{backgroundColor:yesColor}" onclick="app.deleteAll();">Yes</button>
 				<button onclick="app.overlay = false;">No</button>
 			</div>
 		</div>
 
 		<div id="list">
-			<todo-item v-for="todo in todos" v-bind:todo="todo" v-bind:key="todo.id" @delete-click="deleteItem"></todo-item> <!--v-for creates a todo-item for every element-->
+			<todo-item v-for="(todo,index) in todos" v-bind:todo="todo" v-bind:index="index" v-bind:key="todo.id" @delete-click="deleteItem"></todo-item> <!--v-for creates a todo-item for every element-->
 
-			<div v-if="newTodo.length" class="itemText"> <!--Determines visibility-->
-				<em>Preview: </em> {{newTodo}}
+			<div v-show="newTodo.length" class="itemText"> <!--Determines visibility; could also use v-if show is display:none; if doesn't even render-->
+				<span v-bind:style="cursiveStyle">Preview:</span> {{newTodo}}
+				<!--v-bind:style also possible with an array-->
 			</div>
 		</div>
 

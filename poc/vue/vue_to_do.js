@@ -1,6 +1,11 @@
+Vue.component("indexDisplay", {
+	props:["index"],
+	template:"<div style='font-weight:bold;float:left;width:35px;'>{{index + 1}} </div>"
+});
+
 Vue.component("itemText", {
-	props:["todo"],
-	template:"<div v-bind:title='\"Length: \" + todo.text.length' class='itemText'>{{todo.text}}</div>" //v-bind:title = :title
+	props:["todo","index"],
+	template:"<div v-bind:title='\"Length: \" + todo.text.length' class='itemText'><indexDisplay v-bind:index='index'></indexDisplay>{{todo.text}}</div>" //v-bind:title = :title
 }
 );
 
@@ -16,8 +21,8 @@ Vue.component("deleteButton",{
 );
 
 Vue.component("todo-item",{
-	props: ["todo"], //prop is a custom attribute
-	template: "<div class='listItem flex'><itemText v-bind:todo='todo'></itemText><deleteButton v-bind:todo='todo' @delete-click='passOnDeleteClick'></deleteButton></div>",
+	props: ["todo","index"], //prop is a custom attribute
+	template: "<div class='listItem flex'><itemText v-bind:todo='todo' v-bind:index='index'></itemText><deleteButton v-bind:todo='todo' @delete-click='passOnDeleteClick'></deleteButton></div>",
 	methods:{
 		passOnDeleteClick: function(id){
 			this.$emit("delete-click",id);
@@ -30,7 +35,9 @@ var data = {
 	todos: [],
 	newTodo:"",
 	idIterator:0,
-	overlay:false
+	overlay:false,
+	yesColor:"#870000",
+	cursiveStyle:{fontStyle:"italic"}
 };
 
 var app = new Vue({
