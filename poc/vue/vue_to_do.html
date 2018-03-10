@@ -8,7 +8,7 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<script src="vue.js" defer></script><!--Use vue.min.js for prod and vue.js for dev-->
+	<script src="../../dependencies/vuejs/vue.js" defer></script><!--Use vue.min.js for prod and vue.js for dev-->
 	<script src="vue_to_do.js" defer></script>
 
 	<style>
@@ -100,7 +100,7 @@
 		</div>
 
 		<div id="list">
-			<todo-item v-for="(todo,index) in todos" v-bind:todo="todo" v-bind:index="index" v-bind:key="todo.id" @delete-click="deleteItem"></todo-item> <!--v-for creates a todo-item for every element-->
+			<todo-item v-for="(todo,index) in todos" v-bind:todo="todo" v-bind:index="index" v-bind:key="index" @delete-click="deleteItem"></todo-item> <!--v-for creates a todo-item for every element-->
 
 			<div v-show="newTodo.length" class="itemText"> <!--Determines visibility; could also use v-if show is display:none; if doesn't even render-->
 				<span v-bind:style="cursiveStyle">Preview:</span> {{newTodo}}

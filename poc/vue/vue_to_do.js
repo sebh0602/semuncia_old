@@ -56,7 +56,7 @@ var app = new Vue({
 			this.todos.push({text:this.newTodo, id:this.idIterator});
 			this.idIterator += 1;
 			this.newTodo = "";
-			localStorage.data = JSON.stringify(this.$root.$data);
+			localStorage.todoData = JSON.stringify(this.$root.$data);
 		},
 		deleteItem: function(id){
 			for (var i = 0; i < this.todos.length; i++){
@@ -66,21 +66,21 @@ var app = new Vue({
 					break;
 				}
 			}
-			localStorage.data = JSON.stringify(this.$root.$data);
+			localStorage.todoData = JSON.stringify(this.$root.$data);
 		},
 		saveText: function(){
-			localStorage.data = JSON.stringify(this.$root.$data);
+			localStorage.todoData = JSON.stringify(this.$root.$data);
 		},
 		deleteAll: function(){
 			this.todos = [];
 			this.overlay = false;
-			localStorage.data = JSON.stringify(this.$root.$data);
+			localStorage.todoData = JSON.stringify(this.$root.$data);
 		}
 	}
 });
 var myData;
-if (localStorage.data){
-	myData = JSON.parse(localStorage.data);
+if (localStorage.todoData){
+	myData = JSON.parse(localStorage.todoData);
 	app.idIterator = myData.idIterator;
 	app.todos = myData.todos;
 	app.newTodo = myData.newTodo;
