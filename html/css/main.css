@@ -1,1 +1,6 @@
-#main{flex-grow: 1;overflow-y: scroll;}
+#main{
+	width: 100%;
+	flex-grow: 1;
+	overflow-y: scroll;
+	background-color: #A3A9FF;
+}

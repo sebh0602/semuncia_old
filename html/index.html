@@ -4,12 +4,12 @@
 	<title>Semuncia</title>
 	<meta charset="UTF-8">
 	<meta name="theme-color" content="#000888">
-
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<link rel="stylesheet" type="text/css" href="css/body.css">
 	<link rel="stylesheet" type="text/css" href="css/app.css">
 	<link rel="stylesheet" type="text/css" href="css/header.css">
+	<link rel="stylesheet" type="text/css" href="css/sideNav.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 
 	<script src="dependencies/vuejs/vue.js" defer></script>
@@ -27,12 +27,15 @@
 
 	<div id="app">
 		<div id="header">
-			<div>Menu</div>
+			<div onclick="document.getElementById('sideNav').style.display='block'">Menu</div>
 			<div id="title">Semuncia</div>
 			<div>Login</div>
 		</div>
-		<div id="main">This is some sample text.
-		It is truly amazing.</div>
+		<div id="sideNav" onclick="document.getElementById('sideNav').style.display='none'">
+			<div id="nav"></div>
+		</div>
+		<div id="main">
+		</div>
 	</div>
 </body>
 

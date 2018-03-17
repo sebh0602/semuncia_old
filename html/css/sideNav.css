@@ -1,0 +1,20 @@
+#sideNav{
+	position: fixed;
+	left:0;
+	top:0;
+	z-index: 1;
+	height: 100%;
+	width:100%;
+
+	background-color: rgba(0,0,0,0.5);
+
+	display: none;
+
+	transition: 0.5s;
+}
+
+#sideNav > #nav{
+	background-color: white;
+	width:300px;
+	height: 100%;
+}
