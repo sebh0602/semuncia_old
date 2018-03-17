@@ -1,0 +1,30 @@
+#header{
+	background-color: #000888;
+	color:white;
+
+	height:7vh;
+	min-height:48px;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#header > div{
+	margin-left: 10px;
+	margin-right: 10px;
+	font-size: 24px;
+}
+
+#header > #title{
+	font-size: 48px;
+}
+
+@media screen and (max-width:499px){
+	#header > #title{
+		font-size: 30px;
+	}
+	#header > div{
+		font-size: 15px;
+	}
+}
