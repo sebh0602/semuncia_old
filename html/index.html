@@ -14,6 +14,10 @@
 
 	<script src="dependencies/vuejs/vue.js" defer></script>
 	<!--Use vue.min.js for prod and vue.js for dev-->
+	<script src="js/config.js" defer></script>
+	<script src="js/text.js" defer></script>
+	<script src="js/vueMethods.js" defer></script>
+	<script src="js/vueMain.js" defer></script>
 </head>
 
 <body>
@@ -25,16 +29,19 @@
 		</style>
 	</noscript>
 
-	<div id="app">
+	<div id="app" @click="saveData">
 		<div id="header">
-			<div onclick="document.getElementById('sideNav').style.display='block'">Menu</div>
+			<div @click="config.showSideNav = true">{{text.menu[language]}}</div>
 			<div id="title">Semuncia</div>
-			<div>Login</div>
+			<div>{{text.login[language]}}</div>
 		</div>
-		<div id="sideNav" onclick="document.getElementById('sideNav').style.display='none'">
-			<div id="nav"></div>
+		<div id="sideNav" v-show="config.showSideNav" @click="config.showSideNav = false;">
+			<div id="nav">
+
+			</div>
 		</div>
 		<div id="main">
+			<div id="addTransaction">{{text.addTransaction[language]}}</div>
 		</div>
 	</div>
 </body>

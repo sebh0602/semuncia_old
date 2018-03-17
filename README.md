@@ -8,5 +8,6 @@ transaction whenever you spend or earn money and see the informative statistics
 on your spending habits before your eyes.
 
 ## filesystem
+* html - All the HTML, CSS, and JS needed to make this work
 * poc - proofs of concept
 * docs - documentation

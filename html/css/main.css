@@ -2,5 +2,17 @@
 	width: 100%;
 	flex-grow: 1;
 	overflow-y: scroll;
-	background-color: #A3A9FF;
+	background-color: #DDDDDD;
+
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+#main > #addTransaction{
+	width:80%;
+	height:300px;
+	background-color: white;
+	border-radius: 15px;
 }

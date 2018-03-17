@@ -1,6 +1,7 @@
 #header{
 	background-color: #000888;
 	color:white;
+	user-select: none;
 
 	width:100%;
 	height:7vh;
