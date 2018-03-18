@@ -11,10 +11,6 @@ var text = {
 		en:"German",
 		de:"Deutsch"
 	},
-	importTransactions:{
-		en:"Import Transactions",
-		de:"Transaktionen Importieren"
-	},
 	importJSON:{
 		en:"Import JSON",
 		de:"JSON importieren"
