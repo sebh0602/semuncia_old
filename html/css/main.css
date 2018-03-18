@@ -1,6 +1,8 @@
 #main{
-	width: 100%;
-	flex-grow: 1;
+	width: calc(100% - 60px);
+	padding:30px;
+
+	height:93%;
 	overflow-y: auto;
 	background-color: #DDDDDD;
 
@@ -10,10 +12,15 @@
 	justify-content: center;
 }
 
-#main > #addTransaction{
+#main > div.box{
 	width:80%;
 	height:300px;
 	background-color: white;
 	border-radius: 15px;
 	overflow-y: auto;
+	margin:50px;
+}
+
+#main > div.box > div.boxTitle{
+	font-size: 20px;
 }

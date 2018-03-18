@@ -26,5 +26,13 @@ var text = {
 	addTransaction:{
 		en:"Add Transaction",
 		de:"Transaktion hinzufügen"
+	},
+	transactions:{
+		en:"Transactions",
+		de:"Transaktionen"
+	},
+	stats:{
+		en:"Statistics",
+		de:"Statistik"
 	}
 };
