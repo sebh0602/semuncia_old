@@ -5,6 +5,7 @@ var app = new Vue({
 		config:config,
 		text:text,
 	},
+	components:components,
 	mounted: function(){ //so it doesn't display the weird vue-less html
 		if ("language" in localStorage){
 			this.language = JSON.parse(localStorage.language);

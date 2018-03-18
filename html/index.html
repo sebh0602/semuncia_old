@@ -16,6 +16,7 @@
 	<!--Use vue.min.js for prod and vue.js for dev-->
 	<script src="js/config.js" defer></script>
 	<script src="js/text.js" defer></script>
+	<script src="js/vueComponents.js" defer></script>
 	<script src="js/vueMethods.js" defer></script>
 	<script src="js/vueMain.js" defer></script>
 </head>
@@ -31,13 +32,21 @@
 
 	<div id="app" @click="saveData">
 		<div id="header">
-			<div @click="config.showSideNav = true">{{text.menu[language]}}</div>
+			<div @click="config.showSideNav = true">&#x2630; {{text.menu[language]}}</div>
 			<div id="title">Semuncia</div>
 			<div>{{text.login[language]}}</div>
 		</div>
-		<div id="sideNav" v-show="config.showSideNav" @click="config.showSideNav = false;">
+		<div id="sideNav" v-show="config.showSideNav" @click.self="config.showSideNav = false;">
 			<div id="nav">
-
+				<div id="closeButton">
+					<div>&#x2630; {{text.menu[language]}}</div>
+					<div @click="config.showSideNav = false;">&#x2715;</div>
+				</div>
+				<side-nav-item v-text="text.en[language]" @click="language = 'en'; config.showSideNav = false;"></side-nav-item>
+				<side-nav-item v-text="text.de[language]" @click="language = 'de'; config.showSideNav = false;"></side-nav-item>
+				<side-nav-item v-text="text.importTransactions[language]"></side-nav-item>
+				<side-nav-item v-text="text.importJSON[language]"></side-nav-item>
+				<side-nav-item v-text="text.exportJSON[language]"></side-nav-item>
 			</div>
 		</div>
 		<div id="main">
