@@ -9,7 +9,6 @@
 	}
 }
 
-
 #main div > #transactionsDisplay.box > #transactions{
 	overflow-y: auto;
 	flex-grow: 1;

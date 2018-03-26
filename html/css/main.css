@@ -8,6 +8,7 @@
 	flex-wrap: wrap;
 	align-items: flex-start;
 	justify-content: space-around;
+	overflow-x: hidden;
 }
 
 #main > #groupOne{
@@ -79,4 +80,5 @@
 	color:white;
 	background-color: #000888;
 	padding:15px;
+	user-select: none;
 }
