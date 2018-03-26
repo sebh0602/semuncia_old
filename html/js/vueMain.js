@@ -16,13 +16,13 @@ var app = new Vue({
 			this.config = JSON.parse(localStorage.config);
 		}
 		if ("transactions" in localStorage){
-			this.config = JSON.parse(localStorage.config);
+			this.transactions = JSON.parse(localStorage.transactions);
 		}
 		if ("recurringTransactions" in localStorage){
-			this.config = JSON.parse(localStorage.config);
+			this.recurringTransactions = JSON.parse(localStorage.recurringTransactions);
 		}
 		if ("initialAmount" in localStorage){
-			this.config = JSON.parse(localStorage.config);
+			this.initialAmount = JSON.parse(localStorage.initialAmount);
 		}
 		document.getElementById("app").style.display = "flex";
 	},

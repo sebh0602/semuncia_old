@@ -18,6 +18,7 @@
 	<link rel="stylesheet" type="text/css" href="css/addTransaction.css">
 	<link rel="stylesheet" type="text/css" href="css/statsDisplay.css">
 	<link rel="stylesheet" type="text/css" href="css/transactionsDisplay.css">
+	<link rel="stylesheet" type="text/css" href="css/graphDisplay.css">
 
 
 
@@ -35,6 +36,7 @@
 	<script src="js/vueAddTransactionComponents.js" defer></script>
 	<script src="js/vueStatsDisplayComponents.js" defer></script>
 	<script src="js/vueTransactionsDisplayComponents.js" defer></script>
+	<script src="js/vueGraphDisplayComponents.js" defer></script>
 
 	<script src="js/vueMethods.js" defer></script>
 	<script src="js/vueMain.js" defer></script>
@@ -66,9 +68,14 @@
 		<side-nav v-bind="$root.$data"></side-nav>
 
 		<div id="main">
-			<add-transaction v-bind="$root.$data"></add-transaction>
-			<stats-display v-bind="$root.$data"></stats-display>
-			<transactions-display v-bind="$root.$data"></transactions-display>
+			<div id="groupOne">
+					<add-transaction v-bind="$root.$data"></add-transaction>
+					<stats-display v-bind="$root.$data"></stats-display>
+					<transactions-display v-bind="$root.$data"></transactions-display>
+			</div>
+			<div id="groupTwo">
+				<graph-display v-bind="$root.$data"></graph-display>
+			</div>
 		</div>
 	</div>
 </body>

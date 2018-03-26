@@ -34,5 +34,9 @@ var text = {
 	stats:{
 		en:"Statistics",
 		de:"Statistik"
+	},
+	graph:{
+		en:"Graph",
+		de:"Diagramm"
 	}
 };
