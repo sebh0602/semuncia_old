@@ -2,7 +2,7 @@ Vue.component("custom-header",{
 	props:["config","text","language"],
 	template:`
 		<div id="header">
-			<div @click="showSideNav">&#x2630;</div>
+			<div @click="showSideNav" id="showSideNavDiv"><menu-icon></menu-icon></div>
 			<div id="title">Semuncia</div>
 			<div>{{text.login[language]}}</div>
 		</div>`,

@@ -13,9 +13,11 @@ Vue.component("side-nav",{
 	template:`
 		<div id="sideNav" v-show="config.showSideNav" @click.self="config.showSideNav = false;">
 			<div id="nav">
-				<div id="closeButton">
+				<div id="sideNavTitle">
 					<div>{{text.menu[language]}}</div>
-					<div @click="config.showSideNav = false;">&#x2715;</div>
+					<div @click="config.showSideNav = false;" id="sideNavCloseButton">
+						<close-icon></close-icon>
+					</div>
 				</div>
 				<side-nav-item v-bind:text="text.en[language]" @click="changeLanguage('en')"></side-nav-item>
 				<side-nav-item v-bind:text="text.de[language]" @click="changeLanguage('de')"></side-nav-item>

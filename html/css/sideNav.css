@@ -34,11 +34,22 @@
 	display: none;
 }
 
-#sideNav > #nav > #closeButton{
+#sideNav > #nav > #sideNavTitle{
 	display:flex;
 	justify-content: space-between;
 	align-items: center;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-right: 1%;
+	width:94%;
 
 	background-color:#000888;
 	color:white;
+}
+
+#sideNav > #nav > #sideNavTitle > #sideNavCloseButton{
+	height:5vh;
+	width:5vh;
+	min-height: 48px;
+	min-width: 48px;
 }
