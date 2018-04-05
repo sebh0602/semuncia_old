@@ -13,3 +13,23 @@
 	overflow-y: auto;
 	flex-grow: 1;
 }
+
+#main div > #transactionsDisplay.box > #transactions > div.dateContainer{
+}
+
+#main div > #transactionsDisplay.box > #transactions > div.dateContainer > div.date{
+	background-color: #1e2749;
+	color: white;
+	padding: 5px;
+	border-bottom: 1px solid black;
+}
+
+#main div > #transactionsDisplay.box > #transactions > div.dateContainer > div.transaction{
+	padding: 15px;
+	border-bottom: 1px solid black;
+}
+
+#main div > #transactionsDisplay.box > #transactions > div.dateContainer > div.transaction > div.transactionTop{
+	display:flex;
+	justify-content: space-between;
+}

@@ -14,11 +14,11 @@ data = {
 	"initialAmount":1234.56,
 	"transactions":{
 		"2018-03-11":[
-			{"date":"YYYY-MM-DD","type":"+","amount":1234.56,"title":"MyTransaction","categories":[]},
-			{"date":"YYYY-MM-DD","type":"+","amount":1234.56,"title":"MyTransaction","categories":["food"]}
+			{"date":"YYYY-MM-DD","type":"+","amount":123456,"title":"MyTransaction","categories":[]},
+			{"date":"YYYY-MM-DD","type":"+","amount":123456,"title":"MyTransaction","categories":["food"]}
 		],
 		"2018-03-12":[
-			{"date":"YYYY-MM-DD","type":"+","amount":1234.56,"title":"MyTransaction","categories":["technology", "amazon"]}
+			{"date":"YYYY-MM-DD","type":"+","amount":123456,"title":"MyTransaction","categories":["technology", "amazon"]}
 		]
 	},
 	"recurringTransactions":[
@@ -26,7 +26,7 @@ data = {
 			"recurUnit":"month",
 			"recurPeriod":1,
 			"type":"+",
-			"amount":160,
+			"amount":16000,
 			"title":"Recurring transaction",
 			"categories":[],
 			"startDate":"YYYY-MM-DD"
@@ -34,3 +34,4 @@ data = {
 	]
 }
 ```
+All monetary values are in cents.
