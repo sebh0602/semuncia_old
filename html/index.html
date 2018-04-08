@@ -63,7 +63,7 @@
 		</style>
 	<![endif]-->
 
-	<div id="app" @click="saveData">
+	<div id="app" @click="saveData" @return="saveData">
 		<custom-header v-bind:config="config" :text="text" :language="language"></custom-header>
 
 		<side-nav v-bind="$root.$data"></side-nav>

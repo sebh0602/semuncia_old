@@ -8,3 +8,5 @@ The color palette contains the following colors:
 * #d8dbe2 - background
 * #a9bcd0 - light blue
 * #1e2749 - dark blue
+
+See also https://coolors.co/000888-d8dbe2-ffffff-a9bcd0-1e2749

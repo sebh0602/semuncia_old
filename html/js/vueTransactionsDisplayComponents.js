@@ -2,7 +2,7 @@ Vue.component("transactions-display",{
 	props:["transactions","text","language"],
 	template:`
 		<div id="transactionsDisplay" class="box">
-			<box-title :title=text.transactions[language]></box-title>
+			<box-title>{{text.transactions[language]}}</box-title>
 			<div id="transactions">
 				<div v-for="(dayTransactions,date,index) in transactions" :key="index" class="dateContainer">
 					<div class="date">
