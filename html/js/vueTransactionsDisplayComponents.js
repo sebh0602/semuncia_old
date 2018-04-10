@@ -17,11 +17,11 @@ Vue.component("transactions-display",{
 
 							<div class="transactionAmount">
 								{{transaction["type"]}}
-								{{transaction["amount"]}}
+								{{this.addDecimalSeparators(transaction["amount"])}}
 							</div>
 						</div>
 						<div>
-							{{transaction["categories"]}}
+							{{transaction["categories"].join(", ")}}
 						</div>
 					</div>
 				</div>

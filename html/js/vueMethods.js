@@ -6,8 +6,5 @@ var vueMethods = {
 		localStorage.initialAmount = JSON.stringify(this.initialAmount);
 		localStorage.recurringTransactions = JSON.stringify(this.recurringTransactions);
 	},
-	addDecimalSeparators:function(cents){
-		var arr = cents.toString().split("");
-		return arr;
-	}
+
 };
