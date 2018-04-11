@@ -10,7 +10,7 @@ function addDecimalSeparators(cents){
 
 function addSpaces(number){
 	var arr = number.toString().split("");
-	for (var i = arr.length - 3; i > 1; i -= 3){
+	for (var i = arr.length - 3; i >= 1; i -= 3){
 		arr[i] = " " + arr[i];
 	}
 	return arr.join("");

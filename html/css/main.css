@@ -40,7 +40,7 @@
 
 @media screen and (max-width: 499px){
 	#main > div div.box{
-		width:calc(100vw - 40px);
+		width:calc(100vw - 50px);
 	}
 }
 
@@ -73,10 +73,11 @@
 	height:calc((93vh / 2) - 40px);
 	margin:20px;
 	background-color: white;
+	font-size: 1em;
 }
 
 #main > div div.box > div.boxTitle{
-	font-size: 20px;
+	font-size: 1.5em;
 	border-bottom: 1px solid black;
 	color:white;
 	background-color: #000888;

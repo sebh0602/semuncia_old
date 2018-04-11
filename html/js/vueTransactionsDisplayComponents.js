@@ -20,8 +20,8 @@ Vue.component("transactions-display",{
 								{{this.addDecimalSeparators(transaction["amount"])}}
 							</div>
 						</div>
-						<div>
-							{{transaction["categories"].join(", ")}}
+						<div class="transactionBottom">
+							<div class="category" v-for="(category,index) in transaction['categories']" :key="index">{{category}}</div>
 						</div>
 					</div>
 				</div>
