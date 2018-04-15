@@ -38,5 +38,9 @@ var text = {
 	graph:{
 		en:"Graph",
 		de:"Diagramm"
+	},
+	currentBalance:{
+		en:"Current Balance",
+		de:"Aktueller Betrag"
 	}
 };
