@@ -28,5 +28,25 @@ var app = new Vue({
 	},
 	computed:{
 	},
+	watch:{
+		language:function(val){
+			localStorage.language = JSON.stringify(val);
+		},
+		config:{
+			handler:function(val){
+				localStorage.config = JSON.stringify(val);
+			},
+			deep:true //nested
+		},
+		initialAmount:function(val){
+			localStorage.initialAmount = JSON.stringify(val);
+		},
+		transactions:function(val){
+			localStorage.transactions = JSON.stringify(val);
+		},
+		recurringTransactions:function(val){
+			localStorage.recurringTransactions = JSON.stringify(val);
+		}
+	},
 	methods:vueMethods
 });

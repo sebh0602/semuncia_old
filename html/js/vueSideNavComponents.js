@@ -52,6 +52,9 @@ Vue.component("side-nav",{
 				if ("config" in result){
 					app.config = result.config;
 				}
+				if ("language" in result){
+					app.language = result.language;
+				}
 				app.config.showSideNav = false;
 				app.saveData();
 			}
