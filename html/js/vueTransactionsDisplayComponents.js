@@ -4,7 +4,7 @@ Vue.component("transactions-display",{
 		<div id="transactionsDisplay" class="box">
 			<box-title>{{text.transactions[language]}}</box-title>
 			<div id="transactions">
-				<div v-for="(date,index) in Object.keys(transactions).reverse()" :key="index" class="dateContainer">
+				<div v-for="(date,index) in Object.keys(transactions).sort().reverse()" :key="index" class="dateContainer">
 					<div class="date">
 						{{date}}
 					</div>

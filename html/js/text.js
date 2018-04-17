@@ -42,5 +42,13 @@ var text = {
 	currentBalance:{
 		en:"Current Balance",
 		de:"Aktueller Betrag"
+	},
+	transactionTitle:{
+		en:"transaction title",
+		de:"Transaktionstitel"
+	},
+	transactionAmount:{
+		en:"Amount",
+		de:"Betrag"
 	}
 };
