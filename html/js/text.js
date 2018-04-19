@@ -48,7 +48,7 @@ var text = {
 		de:"Transaktionstitel"
 	},
 	transactionAmount:{
-		en:"Amount",
+		en:"amount",
 		de:"Betrag"
 	}
 };

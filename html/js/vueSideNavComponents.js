@@ -56,7 +56,6 @@ Vue.component("side-nav",{
 					app.language = result.language;
 				}
 				app.config.showSideNav = false;
-				app.saveData();
 			}
 			reader.readAsText(event.target.files[0]);
 			document.getElementById("transactionsInput").value = ""; //so the onchange event works
