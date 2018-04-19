@@ -1,0 +1,36 @@
+div.toggle{
+	min-width: 48px;
+	min-height: 48px;
+	user-select: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+div.toggle > div.toggleBackground{
+	width:80px;
+	height:30px;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 15px;
+	position: relative;
+	transition: background-color 0.3s;
+}
+
+div.toggle > div.toggleBackground > div.toggleToggle{
+	height:26px;
+	width:26px;
+	border-radius: 13px;
+	background-color: white;
+	position: absolute;
+	transition: left 0.3s;
+}
+
+div.toggle > div.toggleBackground > div.toggleToggle.firstOption{
+	left:2px;
+}
+
+div.toggle > div.toggleBackground > div.toggleToggle.secondOption{
+	left:52px;
+}

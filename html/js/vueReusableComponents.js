@@ -7,16 +7,32 @@ Vue.component("box-title",{
 });
 
 Vue.component("toggle-switch",{
-	model:{
-		prop:"variable",
-		event:"userInput"
-	},
-	props:["variable","valueOne","valueTwo"],
+	props:["value","valueOne","valueTwo","colorOne","colorTwo"],
 	template:`
-		<div>
-			<button v-on:userInput="$emit('userInput', $event.target.variable)" v-bind:variable="valueOne">{{valueOne}}</button>
-			<button v-on:userInput="$emit('userInput', $event.target.variable)" v-bind:variable="valueTwo">{{valueTwo}}</button>
-			<span>{{variable}}</span>
+		<div class="toggle" v-on:click="handleClick">
+			<div class="toggleBackground" v-bind:style={backgroundColor:displayColor}>
+				<div class="toggleToggle" v-bind:class="[valueOne == value ? 'firstOption':'secondOption']"></div>
+				<div class="toggleValueDisplay">{{displayValue}}</div>
+			</div>
 		</div>
-	`
+	`,
+	methods:{
+		handleClick:function(){
+			var v;
+			if (this.value == this.valueOne){
+				v = this.valueTwo;
+			} else{
+				v = this.valueOne;
+			}
+			this.$emit('input', v);
+		}
+	},
+	computed:{
+		displayValue:function(){
+			return this.value;
+		},
+		displayColor:function(){
+			return (this.value == this.valueOne) ? this.colorOne : this.colorTwo;
+		}
+	}
 });
