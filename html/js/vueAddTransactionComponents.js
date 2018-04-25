@@ -7,7 +7,7 @@ Vue.component("add-transaction",{
 			<input type="text" v-model="config.newTransactionTitle" :placeholder="text.transactionTitle[language]">
 			<input type="number" v-model="config.newTransactionAmount" :placeholder="text.transactionAmount[language]">
 
-			<toggle-switch v-model="config.newTransactionType" :valueOne="'+'" :valueTwo="'-'" colorOne="green" colorTwo="red"></toggle-switch>
+			<toggle-switch v-model="config.newTransactionType" :valueOne="'+'" :valueTwo="'-'" colorOne="#ccffcc" colorTwo="#ffcccc"></toggle-switch>
 		</div>`,
 	methods:{
 

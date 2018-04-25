@@ -1,6 +1,7 @@
 div.toggle{
 	min-width: 48px;
 	min-height: 48px;
+	width:90px;
 	user-select: none;
 	display: flex;
 	align-items: center;
@@ -19,18 +20,23 @@ div.toggle > div.toggleBackground{
 }
 
 div.toggle > div.toggleBackground > div.toggleToggle{
-	height:26px;
-	width:26px;
-	border-radius: 13px;
-	background-color: white;
+	height:24px;
+	width:24px;
+	border-radius: 12px;
+	background-color: #1e2749;
 	position: absolute;
 	transition: left 0.3s;
 }
 
 div.toggle > div.toggleBackground > div.toggleToggle.firstOption{
-	left:2px;
+	left:3px;
 }
 
 div.toggle > div.toggleBackground > div.toggleToggle.secondOption{
-	left:52px;
+	left:53px;
+}
+
+div.toggle > div.toggleBackground > div.toggleValueDisplay{
+	font-size: 1.25em;
+	margin-top: -5px;
 }

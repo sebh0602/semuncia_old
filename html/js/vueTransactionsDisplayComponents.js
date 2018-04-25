@@ -9,7 +9,7 @@ Vue.component("transactions-display",{
 						{{date}}
 					</div>
 
-					<div v-for="(transaction, index2) in transactions[date]" :key="index2" class="transaction">
+					<div v-for="(transaction, index2) in transactions[date]" :key="index2" class="transaction" v-bind:style="[(transaction['type'] == '+') ? {backgroundColor:'#CCFFCC'}:{backgroundColor:'#FFCCCC'}]">
 						<div class="transactionTop">
 							<div class="transactionTitle">
 								{{transaction["title"]}}
