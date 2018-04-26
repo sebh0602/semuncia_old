@@ -16,16 +16,16 @@ div.toggle > div.toggleBackground{
 	justify-content: center;
 	border-radius: 15px;
 	position: relative;
-	transition: background-color 0.3s;
+	background-color: #1e2749;
+	color: white;
 }
 
 div.toggle > div.toggleBackground > div.toggleToggle{
 	height:24px;
 	width:24px;
 	border-radius: 12px;
-	background-color: #1e2749;
 	position: absolute;
-	transition: left 0.3s;
+	transition: left 0.3s, background-color 0.3s;
 }
 
 div.toggle > div.toggleBackground > div.toggleToggle.firstOption{
@@ -38,5 +38,9 @@ div.toggle > div.toggleBackground > div.toggleToggle.secondOption{
 
 div.toggle > div.toggleBackground > div.toggleValueDisplay{
 	font-size: 1.25em;
-	margin-top: -5px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 13px;
+	height:13px;
+	margin-top: -3px;
 }

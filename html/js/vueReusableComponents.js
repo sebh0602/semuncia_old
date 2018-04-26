@@ -10,8 +10,8 @@ Vue.component("toggle-switch",{
 	props:["value","valueOne","valueTwo","colorOne","colorTwo"],
 	template:`
 		<div class="toggle" v-on:click="handleClick">
-			<div class="toggleBackground" v-bind:style={backgroundColor:displayColor}>
-				<div class="toggleToggle" v-bind:class="[valueOne == value ? 'firstOption':'secondOption']"></div>
+			<div class="toggleBackground">
+				<div class="toggleToggle" v-bind:class="[valueOne == value ? 'firstOption':'secondOption']" v-bind:style={backgroundColor:displayColor}></div>
 				<div class="toggleValueDisplay">{{displayValue}}</div>
 			</div>
 		</div>

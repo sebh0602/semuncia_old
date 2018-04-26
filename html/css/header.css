@@ -21,6 +21,8 @@
 #header > #showSideNavDiv{
 	height: 7vh;
 	width:7vh;
+	min-height: 48px;
+	min-width: 48px;
 }
 
 #header > #title{
