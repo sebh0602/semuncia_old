@@ -56,21 +56,21 @@
 	}
 }
 
-@media screen and (min-width: 1000px) and (min-height: 850px){
-	#main > #groupOne{
-		height:100%;
-	}
-}
-
-@media screen and (min-width: 1000px) and (max-height: 850px){
+@media screen and (min-width: 1000px) and (max-height: 914px){ /*914, because 850/0.93 = 913.978*/
 	#main > #groupOne{
 		height:850px;
 	}
 }
 
+@media screen and (min-width: 1000px) and (min-height: 915px){
+	#main > #groupOne{
+		height:100%;
+	}
+}
+
 #main > div div.box{
 	min-height: 350px;
-	height:calc((93vh / 2) - 40px);
+	height:calc(50% - 40.02px); /*I hate Edge with a burning passion*/
 	margin:20px;
 	background-color: white;
 	font-size: 1em;
