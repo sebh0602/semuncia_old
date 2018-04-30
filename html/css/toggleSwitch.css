@@ -6,6 +6,7 @@ div.toggle{
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	cursor: pointer;
 }
 
 div.toggle > div.toggleBackground{
