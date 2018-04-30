@@ -58,5 +58,35 @@ var text = {
 	addCategory:{
 		en:"Add Category",
 		de:"Kategorie hinzufügen"
+	},
+	weekdays:{
+		1:{
+			en:"Mon",
+			de:"Mo"
+		},
+		2:{
+			en:"Tue",
+			de:"Di"
+		},
+		3:{
+			en:"Wed",
+			de:"Mi"
+		},
+		4:{
+			en:"Thu",
+			de:"Do"
+		},
+		5:{
+			en:"Fri",
+			de:"Fr"
+		},
+		6:{
+			en:"Sat",
+			de:"Sa"
+		},
+		0:{
+			en:"Sun",
+			de:"So"
+		}
 	}
 };
