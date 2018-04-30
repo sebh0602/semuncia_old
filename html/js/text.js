@@ -44,11 +44,19 @@ var text = {
 		de:"Aktueller Betrag"
 	},
 	transactionTitle:{
-		en:"transaction title",
+		en:"Transaction Title",
 		de:"Transaktionstitel"
 	},
 	transactionAmount:{
-		en:"amount",
+		en:"Amount",
 		de:"Betrag"
+	},
+	categories:{
+		en:"Categories",
+		de:"Kategorien"
+	},
+	addCategory:{
+		en:"Add Category",
+		de:"Kategorie hinzufügen"
 	}
 };
