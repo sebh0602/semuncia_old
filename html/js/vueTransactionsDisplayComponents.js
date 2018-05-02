@@ -10,21 +10,7 @@ Vue.component("transactions-display",{
 						{{date}} ({{weekday(date)}})
 					</div>
 
-					<div v-for="(transaction, index2) in transactions[date]" :key="index2" class="transaction" v-bind:style="[backgroundColor(transaction)]">
-						<div class="transactionTop">
-							<div class="transactionTitle">
-								{{transaction["title"]}}
-							</div>
-
-							<div class="transactionAmount">
-								{{transaction["type"]}}
-								{{this.addDecimalSeparators(transaction["amount"])}}
-							</div>
-						</div>
-						<div class="transactionBottom">
-							<div class="category" v-for="(category,index) in transaction['categories']" :key="index">{{category}}</div>
-						</div>
-					</div>
+					<transaction-component v-for="(transaction, index2) in transactions[date]" :key="index2" v-bind:transaction="transaction"></transaction-component>
 				</div>
 			</div>
 		</div>`,

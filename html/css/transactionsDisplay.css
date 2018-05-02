@@ -15,6 +15,7 @@
 	flex-grow: 1;
 }
 
+
 #main div > #transactionsDisplay.box > #transactions > div.dateContainer{
 }
 
@@ -24,28 +25,4 @@
 	padding: 5px;
 	border-bottom: 1px solid black;
 	font-size: 1.25em;
-}
-
-#main div > #transactionsDisplay.box > #transactions > div.dateContainer > div.transaction{
-	padding: 15px;
-	border-bottom: 1px solid black;
-}
-
-#main div > #transactionsDisplay.box > #transactions > div.dateContainer > div.transaction > div.transactionTop{
-	display:flex;
-	justify-content: space-between;
-	font-size: 1.125em;
-}
-
-#main div > #transactionsDisplay.box > #transactions > div.dateContainer > div.transaction > div.transactionBottom{
-	display:flex;
-	flex-wrap: wrap;
-	margin-top: 10px;
-}
-
-#main div > #transactionsDisplay.box > #transactions > div.dateContainer > div.transaction > div.transactionBottom > div.category{
-	background-color: #A9BCD0;
-	padding:5px;
-	margin-right: 5px;
-	font-size: 0.9em;
 }

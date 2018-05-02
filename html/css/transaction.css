@@ -1,0 +1,23 @@
+div.transaction{
+	padding: 15px;
+	border-bottom: 1px solid black;
+}
+
+div.transaction > div.transactionTop{
+	display:flex;
+	justify-content: space-between;
+	font-size: 1.125em;
+}
+
+div.transaction > div.transactionBottom{
+	display:flex;
+	flex-wrap: wrap;
+	margin-top: 10px;
+}
+
+div.transaction > div.transactionBottom > div.category{
+	background-color: #A9BCD0;
+	padding:5px;
+	margin-right: 5px;
+	font-size: 0.9em;
+}
