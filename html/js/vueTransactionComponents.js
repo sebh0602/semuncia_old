@@ -1,10 +1,11 @@
 Vue.component("transaction-component",{
-	props:["transactions","text","language","config","transaction"],
+	props:["transactions","text","language","config","transaction","editMode"],
 	template:`
 		<div class="transaction" v-bind:style="[backgroundColor(transaction)]">
 			<div class="transactionTop">
 				<div class="transactionTitle">
-					{{transaction["title"]}}
+					<span v-if="!editMode">{{transaction["title"]}}</span>
+					<input v-else type="text" v-model="transaction['title']" :placeholder="text.transactionTitle[language]">
 				</div>
 
 				<div class="transactionAmount">
