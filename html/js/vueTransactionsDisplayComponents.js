@@ -3,6 +3,7 @@ Vue.component("transactions-display",{
 	template:`
 		<div id="transactionsDisplay" class="box">
 			<box-title>{{text.transactions[language]}}</box-title>
+			<add-transaction v-bind="$root.$data"></add-transaction>
 			<div id="transactions">
 				<div v-for="(date,index) in Object.keys(transactions).sort().reverse()" :key="index" class="dateContainer">
 					<div class="date">

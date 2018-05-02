@@ -1,9 +1,7 @@
 Vue.component("add-transaction",{
 	props:["transactions","text","language","config"],
 	template:`
-		<div id="addTransaction" class="box">
-			<box-title>{{text.addTransaction[language]}}</box-title>
-
+		<div>
 			<input type="text" v-model="config.newTransactionTitle" :placeholder="text.transactionTitle[language]">
 			<input type="number" step="any" min="0" v-model="config.newTransactionAmount" :placeholder="text.transactionAmount[language]">
 
@@ -13,7 +11,7 @@ Vue.component("add-transaction",{
 				<option v-for="(category,index) in categories" :key="index" :value="category[0]">{{category[1]}}</option>
 			</datalist>
 			<button>{{text.addCategory[language]}}</button>
-			<input type="date">
+			<input type="dates">
 		</div>`,
 	methods:{
 

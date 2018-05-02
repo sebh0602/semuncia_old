@@ -88,5 +88,9 @@ var text = {
 			en:"Sun",
 			de:"So"
 		}
+	},
+	analysis:{
+		en:"Analysis",
+		de:"Analyse"
 	}
 };

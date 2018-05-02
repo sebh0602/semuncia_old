@@ -35,9 +35,9 @@
 	<script src="js/vueReusableComponents.js" defer></script>
 
 	<script src="js/vueTransactionsDisplayComponents.js" defer></script>
-	<script src="js/vueAddTransactionComponents.js" defer></script>
+		<script src="js/vueAddTransactionComponents.js" defer></script>
 	<script src="js/vueStatsDisplayComponents.js" defer></script>
-	<script src="js/vueTransactionsDisplayComponents.js" defer></script>
+	<script src="js/vueAnalysisComponents.js" defer></script>
 	<script src="js/vueGraphDisplayComponents.js" defer></script>
 
 	<script src="js/vueMethods.js" defer></script>
@@ -72,9 +72,9 @@
 
 		<div id="main">
 			<div id="groupOne">
-					<add-transaction v-bind="$root.$data"></add-transaction>
-					<stats-display v-bind="$root.$data"></stats-display>
 					<transactions-display v-bind="$root.$data"></transactions-display>
+					<stats-display v-bind="$root.$data"></stats-display>
+					<analysis-display v-bind="$root.$data"></analysis-display>
 			</div>
 			<div id="groupTwo">
 				<graph-display v-bind="$root.$data"></graph-display>
