@@ -25,3 +25,17 @@ Vue.component("transaction-component",{
 		}
 	}
 });
+
+Vue.component("date-component",{
+	props:["transactions","text","language","config","date"],
+	template:`
+		<div class="date">
+			{{date}} ({{weekday(date)}})
+		</div>`,
+	methods:{
+		weekday:function(date){
+			var date = new Date(date);
+			return this.text.weekdays[date.getDay()][this.language];
+		}
+	}
+});
