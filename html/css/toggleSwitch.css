@@ -3,7 +3,7 @@ div.toggle{
 	min-height: 48px;
 	width:90px;
 	user-select: none;
-	display: flex;
+	display: inline-flex;
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;

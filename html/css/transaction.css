@@ -9,6 +9,10 @@ div.transaction > div.transactionTop{
 	font-size: 1.125em;
 }
 
+div.transaction > div.transactionTop > div.transactionAmount > span > input.amountInput{
+	width:70px;
+}
+
 div.transaction > div.transactionBottom{
 	display:flex;
 	flex-wrap: wrap;
