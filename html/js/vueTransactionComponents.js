@@ -1,9 +1,10 @@
 Vue.component("transaction-component",{
 	props:["transactions","text","language","config","editMode","transaction"],
-	model: {
-		prop: 'transaction',
- 		event: 'change'
- 	},
+	data:function(){
+		return {
+			newCategory:""
+		};
+	},
 	template:`
 		<div class="transaction" v-bind:style="[backgroundColor(transaction)]">
 			<div class="transactionTop">
@@ -18,18 +19,18 @@ Vue.component("transaction-component",{
 						{{addComma(transaction["amount"])}}</span>
 					<span v-else>
 						<toggle-switch v-model="transaction.type" :valueOne="'+'" :valueTwo="'-'" colorOne="#ccffcc" colorTwo="#ffcccc"></toggle-switch>
-						<input type="number" step="any" min="0" v-model="config.newTransactionAmount" :placeholder="text.transactionAmount[language]" class="amountInput">
+						<input type="number" step="any" min="0" v-model="transaction.amount" :placeholder="text.transactionAmount[language]" class="amountInput">
 					</span>
 				</div>
 			</div>
 			<div class="transactionBottom">
-				<div v-if="!editMode" class="category" v-for="(category,index) in transaction['categories']" :key="index+1000">{{category}}</div>
-				<div v-else>
-					<input type="text" list="categories" :placeholder="text.categories[language]">
+				<div class="category" v-for="(category,index) in transaction['categories']" :key="index" @click="transaction.categories.splice(index,1)">{{category}}</div>
+				<div v-if="editMode">
+					<input type="text" list="categories" :placeholder="text.categories[language]" v-model="newCategory" @keydown.enter="addCategory">
 					<datalist id="categories">
 						<option v-for="(category,index) in categories" :key="index" :value="category[0]">{{category[1]}}</option>
 					</datalist>
-					<button>{{text.addCategory[language]}}</button>
+					<button @click="addCategory">{{text.addCategory[language]}}</button>
 				</div>
 			</div>
 		</div>`,
@@ -39,6 +40,10 @@ Vue.component("transaction-component",{
 		},
 		addComma: function(number){
 			return addDecimalSeparators(number);
+		},
+		addCategory:function(){
+			this.transaction.categories.push(this.newCategory);
+			this.newCategory = "";
 		}
 	},
 	computed:{

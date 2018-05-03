@@ -5,7 +5,7 @@ Vue.component("transactions-display",{
 			<box-title>{{text.transactions[language]}}</box-title>
 			<div id="transactions">
 
-				<transaction-component v-model="transactions['2018-04-12'][0]" :editMode="true" v-bind="$root.$data"></transaction-component>
+				<transaction-component :transaction="transactions['2018-05-03'][0]" :editMode="true" v-bind="$root.$data"></transaction-component>
 
 				<div v-for="(date,index) in Object.keys(transactions).sort().reverse()" :key="index" class="dateContainer">
 					<date-component :date="date" :text="text" :language="language" :editMode="false"></date-component>

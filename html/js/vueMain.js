@@ -41,8 +41,11 @@ var app = new Vue({
 		initialAmount:function(val){
 			localStorage.initialAmount = JSON.stringify(val);
 		},
-		transactions:function(val){
-			localStorage.transactions = JSON.stringify(val);
+		transactions:{
+			handler:function(val){
+				localStorage.transactions = JSON.stringify(val);
+			},
+			deep:true //nested
 		},
 		recurringTransactions:function(val){
 			localStorage.recurringTransactions = JSON.stringify(val);
