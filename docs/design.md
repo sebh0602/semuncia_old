@@ -7,6 +7,8 @@ The color palette contains the following colors:
 * #000888 - navbar
 * #d8dbe2 - background
 * #a9bcd0 - light blue
+	* Used for categories and transactions in editMode
+	* #7d8b99 - as a border around light blue (category-border)
 * #1e2749 - dark blue
 * #ccffcc - greenish
 * #ffcccc - reddish

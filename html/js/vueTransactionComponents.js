@@ -24,7 +24,7 @@ Vue.component("transaction-component",{
 				</div>
 			</div>
 			<div class="transactionBottom">
-				<div class="category" v-for="(category,index) in transaction['categories']" :key="index" @click="transaction.categories.splice(index,1)">{{category}}</div>
+				<div class="category" v-for="(category,index) in transaction['categories']" :key="index" @click="removeCategory(index)">{{category}}</div>
 				<div v-if="editMode">
 					<input type="text" list="categories" :placeholder="text.categories[language]" v-model="newCategory" @keydown.enter="addCategory">
 					<datalist id="categories">
@@ -36,7 +36,11 @@ Vue.component("transaction-component",{
 		</div>`,
 	methods:{
 		backgroundColor: function(transaction){
-			return (transaction['type'] == '+') ? {backgroundColor:'#CCFFCC'}:{backgroundColor:'#FFCCCC'};
+			if (this.editMode){
+				return {backgroundColor:"#A9BCD0"};
+			} else{
+				return (transaction['type'] == '+') ? {backgroundColor:'#CCFFCC'}:{backgroundColor:'#FFCCCC'};
+			}
 		},
 		addComma: function(number){
 			return addDecimalSeparators(number);
@@ -44,6 +48,11 @@ Vue.component("transaction-component",{
 		addCategory:function(){
 			this.transaction.categories.push(this.newCategory);
 			this.newCategory = "";
+		},
+		removeCategory:function(index){
+			if (this.editMode){
+				this.transaction.categories.splice(index,1);
+			}
 		}
 	},
 	computed:{
@@ -81,7 +90,7 @@ Vue.component("transaction-component",{
 Vue.component("date-component",{
 	props:["transactions","text","language","config","date","editMode"],
 	template:`
-		<div class="date">
+		<div class="date" :style="[(editMode) ? {backgroundColor:'#A9BCD0'}:{}]"">
 			<span v-if="!editMode">{{date}} ({{weekday(date)}})</span>
 			<span v-else><input type="date"></span>
 		</div>`,

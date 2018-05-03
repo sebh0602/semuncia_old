@@ -1,6 +1,10 @@
 var config = {
 	showSideNav:false,
-	newTransactionTitle:"",
-	newTransactionAmount:null,
-	newTransactionType:"-"
+	newTransaction:{
+		date:"",
+		title:"",
+		type:"",
+		amount:"",
+		categories:[]
+	}
 };
