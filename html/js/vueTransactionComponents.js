@@ -6,31 +6,34 @@ Vue.component("transaction-component",{
 		};
 	},
 	template:`
-		<div class="transaction" v-bind:style="[backgroundColor(transaction)]">
-			<div class="transactionTop">
-				<div class="transactionTitle">
-					<span v-if="!editMode">{{transaction["title"]}}</span>
-					<span v-else><input type="text" v-model="transaction['title']" :placeholder="text.transactionTitle[language]"></span>
-				</div>
+		<div class="transactionContainer">
+			<date-component v-if="editMode" v-model="transaction.date" :editMode="true" v-bind="$root.$data"></date-component>
+			<div class="transaction" v-bind:style="[backgroundColor(transaction)]">
+				<div class="transactionTop">
+					<div class="transactionTitle">
+						<span v-if="!editMode">{{transaction["title"]}}</span>
+						<span v-else><input type="text" v-model="transaction['title']" :placeholder="text.transactionTitle[language]"></span>
+					</div>
 
-				<div class="transactionAmount">
-					<span v-if="!editMode">
-						{{transaction["type"]}}
-						{{addComma(transaction["amount"])}}</span>
-					<span v-else>
-						<toggle-switch v-model="transaction.type" :valueOne="'+'" :valueTwo="'-'" colorOne="#ccffcc" colorTwo="#ffcccc"></toggle-switch>
-						<input type="number" step="any" min="0" v-model="transaction.amount" :placeholder="text.transactionAmount[language]" class="amountInput">
-					</span>
+					<div class="transactionAmount">
+						<span v-if="!editMode">
+							{{transaction["type"]}}
+							{{addComma(transaction["amount"])}}</span>
+						<span v-else>
+							<toggle-switch v-model="transaction.type" :valueOne="'+'" :valueTwo="'-'" colorOne="#ccffcc" colorTwo="#ffcccc"></toggle-switch>
+							<input type="number" step="any" min="0" v-model="transaction.amount" :placeholder="text.transactionAmount[language]" class="amountInput">
+						</span>
+					</div>
 				</div>
-			</div>
-			<div class="transactionBottom">
-				<div class="category" v-for="(category,index) in transaction['categories']" :key="index" @click="removeCategory(index)">{{category}}</div>
-				<div v-if="editMode">
-					<input type="text" list="categories" :placeholder="text.categories[language]" v-model="newCategory" @keydown.enter="addCategory">
-					<datalist id="categories">
-						<option v-for="(category,index) in categories" :key="index" :value="category[0]">{{category[1]}}</option>
-					</datalist>
-					<button @click="addCategory">{{text.addCategory[language]}}</button>
+				<div class="transactionBottom">
+					<div class="category" v-for="(category,index) in transaction['categories']" :key="index" @click="removeCategory(index)">{{category}}</div>
+					<div v-if="editMode">
+						<input type="text" list="categories" :placeholder="text.categories[language]" v-model="newCategory" @keydown.enter="addCategory">
+						<datalist id="categories">
+							<option v-for="(category,index) in categories" :key="index" :value="category[0]">{{category[1]}}</option>
+						</datalist>
+						<button @click="addCategory">{{text.addCategory[language]}}</button>
+					</div>
 				</div>
 			</div>
 		</div>`,
@@ -46,8 +49,10 @@ Vue.component("transaction-component",{
 			return addDecimalSeparators(number);
 		},
 		addCategory:function(){
-			this.transaction.categories.push(this.newCategory);
-			this.newCategory = "";
+			if (this.newCategory != ""){
+				this.transaction.categories.push(this.newCategory);
+				this.newCategory = "";
+			}
 		},
 		removeCategory:function(index){
 			if (this.editMode){
@@ -88,16 +93,20 @@ Vue.component("transaction-component",{
 });
 
 Vue.component("date-component",{
-	props:["transactions","text","language","config","date","editMode"],
+	props:["transactions","text","language","config","editMode","value"],
 	template:`
 		<div class="date" :style="[(editMode) ? {backgroundColor:'#A9BCD0'}:{}]"">
-			<span v-if="!editMode">{{date}} ({{weekday(date)}})</span>
-			<span v-else><input type="date"></span>
+			<span v-if="!editMode">{{value}} ({{weekday(value)}})</span>
+			<span v-else><input type="date" :value="value" v-on:input="$emit('input',$event.target.value)"></span>
 		</div>`,
 	methods:{
 		weekday:function(date){
 			var date = new Date(date);
-			return this.text.weekdays[date.getDay()][this.language];
+			if (date != "Invalid Date"){
+				return this.text.weekdays[date.getDay()][this.language];
+			} else{
+				return "";
+			}
 		}
 	}
 });

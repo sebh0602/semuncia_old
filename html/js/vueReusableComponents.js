@@ -1,7 +1,12 @@
 Vue.component("box-title",{
 	template:`
 		<div class="boxTitle">
-			<slot></slot>
+			<div>
+				<slot></slot>
+			</div>
+			<div>
+				<slot name="navigation"></slot>
+			</div>
 		</div>
 	`,
 });
