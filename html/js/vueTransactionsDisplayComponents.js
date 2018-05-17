@@ -27,7 +27,20 @@ Vue.component("transactions-display",{
 			if (!this.transactions.hasOwnProperty(date)){
 				this.transactions[date] = [];
 			}
-			this.transactions[date].push(this.config.newTransaction);
+			var nT = this.config.newTransaction;
+		 	var nT2 = {
+				date:nT.date,
+				type:nT.type,
+				amount:this.newTransactionAmountInCents,
+				title:nT.title,
+				categories:nT.categories
+			};
+			this.transactions[date].push(nT2);
+		}
+	},
+	computed:{
+		newTransactionAmountInCents:function(){
+			return parseFloat(this.config.newTransaction.amount) * 100;
 		}
 	}
 });
