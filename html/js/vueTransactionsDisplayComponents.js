@@ -8,8 +8,8 @@ Vue.component("transactions-display",{
 					<span @click="config.showNewTransactionContainer = !config.showNewTransactionContainer">+</span>
 				</template>
 			</box-title>
+			
 			<div id="transactions">
-
 				<div id="newTransactionContainer" v-if="config.showNewTransactionContainer">
 					<transaction-component :transaction="config.newTransaction" :editMode="true" v-bind="$root.$data"></transaction-component>
 					<button @click="addTransaction()">Add</button>

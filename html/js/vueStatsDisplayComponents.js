@@ -15,7 +15,7 @@ Vue.component("stats-display",{
 
 				<div id="earnedThisMonth" class="singleStatContainer">
 					<div class="subHeader">
-						{{text.currentBalance[language]}}
+						{{text.amountEarnedThisMonth[language]}}
 					</div>
 					<div class="amount">
 						{{earnedThisMonth}}
@@ -24,7 +24,7 @@ Vue.component("stats-display",{
 
 				<div id="spentThisMonth" class="singleStatContainer">
 					<div class="subHeader">
-						{{text.currentBalance[language]}}
+						{{text.amountSpentThisMonth[language]}}
 					</div>
 					<div class="amount">
 						{{spentThisMonth}}
@@ -33,7 +33,7 @@ Vue.component("stats-display",{
 
 				<div id="monthTotal" class="singleStatContainer">
 					<div class="subHeader">
-						{{text.currentBalance[language]}}
+						{{text.monthTotal[language]}}
 					</div>
 					<div class="amount">
 						{{monthTotal}}
@@ -56,15 +56,53 @@ Vue.component("stats-display",{
 			}
 			return addDecimalSeparators(x);
 		},
-		earnedThisMonth:function(){
+		transactionsThisMonth:function(){
+			var date = new Date();
+			var thisMonth = date.getMonth() + 1;
+			var thisYear = date.getFullYear();
+
 			var relevantTransactions = [];
-			return 100;
+
+			for (key in this.transactions){
+				if (thisYear == parseInt(key.split("-")[0]) && thisMonth == parseInt(key.split("-")[1])){
+					for (index in this.transactions[key]){
+						relevantTransactions.push(this.transactions[key][index]);
+					}
+				}
+			}
+			return relevantTransactions;
+		},
+		earnedThisMonth:function(){
+			var relevantTransactions = this.transactionsThisMonth;
+			var x = 0;
+			for (i in relevantTransactions){
+				if (relevantTransactions[i].type == "+"){
+					x += relevantTransactions[i].amount;
+				}
+			}
+			return addDecimalSeparators(x);
 		},
 		spentThisMonth:function(){
-			return 200;
+			var relevantTransactions = this.transactionsThisMonth;
+			var x = 0;
+			for (i in relevantTransactions){
+				if (relevantTransactions[i].type == "-"){
+					x += relevantTransactions[i].amount;
+				}
+			}
+			return addDecimalSeparators(x);
 		},
 		monthTotal:function(){
-			return -100;
+			var relevantTransactions = this.transactionsThisMonth;
+			var x = 0;
+			for (i in relevantTransactions){
+				if (relevantTransactions[i].type == "+"){
+					x += relevantTransactions[i].amount;
+				} else{
+					x -= relevantTransactions[i].amount;
+				}
+			}
+			return addDecimalSeparators(x);;
 		}
 	}
 });

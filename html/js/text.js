@@ -92,5 +92,17 @@ var text = {
 	analysis:{
 		en:"Analysis",
 		de:"Analyse"
+	},
+	amountEarnedThisMonth:{
+		en:"Amont earned this month",
+		de:"Diesen Monat verdient"
+	},
+	amountSpentThisMonth:{
+		en:"Amont spent this month",
+		de:"Diesen Monat ausgegeben"
+	},
+	monthTotal:{
+		en:"Total this month",
+		de:"Diesen Monat übrig"
 	}
 };
