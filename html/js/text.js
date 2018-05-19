@@ -94,11 +94,11 @@ var text = {
 		de:"Analyse"
 	},
 	amountEarnedThisMonth:{
-		en:"Amont earned this month",
+		en:"Amount earned this month",
 		de:"Diesen Monat verdient"
 	},
 	amountSpentThisMonth:{
-		en:"Amont spent this month",
+		en:"Amount spent this month",
 		de:"Diesen Monat ausgegeben"
 	},
 	monthTotal:{
