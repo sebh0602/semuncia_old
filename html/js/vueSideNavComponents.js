@@ -25,7 +25,7 @@ Vue.component("side-nav",{
 				<side-nav-item v-bind:text="text.importJSON[language]" @click="selectImportTransactionsFile"></side-nav-item>
 				<input type="file" v-on:change="importTransactions" id="transactionsInput" accept=".json">
 				<side-nav-item v-bind:text="text.exportJSON[language]"></side-nav-item>
-
+				<side-nav-item v-bind:text="text.github[language]" @click="openGithub"></side-nav-item>
 			</div>
 		</div>`,
 	methods:{
@@ -59,6 +59,10 @@ Vue.component("side-nav",{
 			}
 			reader.readAsText(event.target.files[0]);
 			document.getElementById("transactionsInput").value = ""; //so the onchange event works
+		},
+		openGithub:function(){
+			window.open("https://github.com/sebh0602/semuncia");
+			app.config.showSideNav = false;
 		}
 	}
 });

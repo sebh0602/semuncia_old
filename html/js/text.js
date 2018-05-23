@@ -104,5 +104,9 @@ var text = {
 	monthTotal:{
 		en:"Total this month",
 		de:"Diesen Monat übrig"
+	},
+	github:{
+		en:"GitHub",
+		de:"GitHub"
 	}
 };
