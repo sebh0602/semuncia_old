@@ -14,3 +14,7 @@ The color palette contains the following colors:
 * #ffcccc - reddish
 
 See also https://coolors.co/000888-d8dbe2-ffffff-a9bcd0-1e2749
+
+## tools
+* https://coolors.co
+* https://gravit.io

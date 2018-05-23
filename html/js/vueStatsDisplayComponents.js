@@ -18,7 +18,7 @@ Vue.component("stats-display",{
 						{{text.amountEarnedThisMonth[language]}}
 					</div>
 					<div class="amount">
-						{{earnedThisMonth}}
+						+{{earnedThisMonth}}
 					</div>
 				</div>
 
@@ -27,7 +27,7 @@ Vue.component("stats-display",{
 						{{text.amountSpentThisMonth[language]}}
 					</div>
 					<div class="amount">
-						{{spentThisMonth}}
+						-{{spentThisMonth}}
 					</div>
 				</div>
 

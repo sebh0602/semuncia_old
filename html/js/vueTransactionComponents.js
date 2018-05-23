@@ -17,8 +17,8 @@ Vue.component("transaction-component",{
 
 					<div class="transactionAmount">
 						<span v-if="!editMode">
-							{{transaction["type"]}}
-							{{addComma(transaction["amount"])}}</span>
+							{{transaction["type"]}}{{addComma(transaction["amount"])}}
+						</span>
 						<span v-else>
 							<toggle-switch v-model="transaction.type" :valueOne="'+'" :valueTwo="'-'" colorOne="#ccffcc" colorTwo="#ffcccc"></toggle-switch>
 							<input type="number" step="any" min="0" v-model="transaction.amount" :placeholder="text.transactionAmount[language]" class="amountInput">
