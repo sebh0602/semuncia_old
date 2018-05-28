@@ -24,6 +24,9 @@ Vue.component("transactions-display",{
 	methods:{
 		addTransaction:function(){
 			var date = this.config.newTransaction.date;
+			if (date == ""){
+				date = new Date().toISOString().split("T")[0]; //split because the output is 2018-05-28T20:58:38.835Z
+			}
 			if (!this.transactions.hasOwnProperty(date)){
 				//this.transactions[date] = []; - this does not work, because it is not reactive
 				Vue.set(this.transactions,date,[]);
@@ -38,6 +41,13 @@ Vue.component("transactions-display",{
 			};
 			//this.transactions[date].push(nT); - this does not work, because it is not reactive
 			Vue.set(this.transactions[date],this.transactions[date].length,nT2);
+			this.config.newTransaction = {
+				date:"",
+				title:"",
+				type:"-",
+				amount:"",
+				categories:[]
+			};
 		}
 	},
 	computed:{
