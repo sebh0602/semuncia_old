@@ -12,7 +12,7 @@ Vue.component("transactions-display",{
 			<div id="transactions">
 				<div id="newTransactionContainer" v-if="config.showNewTransactionContainer">
 					<transaction-component :transaction="config.newTransaction" :editMode="true" v-bind="$root.$data"></transaction-component>
-					<button @click="addTransaction()">Add</button>
+					<button @click="addTransaction()" class="addButton">Add</button>
 				</div>
 
 				<div v-for="(date,index) in transactionDates" :key="date" class="dateContainer">
