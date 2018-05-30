@@ -21,7 +21,7 @@ Vue.component("transaction-component",{
 						</span>
 						<span v-else>
 							<toggle-switch v-model="transaction.type" :valueOne="'+'" :valueTwo="'-'" colorOne="#ccffcc" colorTwo="#ffcccc"></toggle-switch>
-							<input type="number" step="any" min="0" v-model="transaction.amount" :placeholder="text.transactionAmount[language]" class="amountInput">
+							<input type="number" step="any" min="0" v-model="displayAmount" :placeholder="text.transactionAmount[language]" class="amountInput">
 						</span>
 					</div>
 				</div>
@@ -88,6 +88,14 @@ Vue.component("transaction-component",{
 				categoriesArray.push([sortedKeys[i],categoriesObject[sortedKeys[i]]]);
 			}
 			return categoriesArray;
+		},
+		displayAmount:{
+			get:function(){
+				return this.transaction.amount / 100;
+			},
+			set:function(newValue){
+				this.transaction.amount = newValue * 100;
+			}
 		}
 	}
 });

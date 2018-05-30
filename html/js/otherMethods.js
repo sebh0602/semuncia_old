@@ -1,5 +1,8 @@
 function addDecimalSeparators(cents){
 	var arr = cents.toString().split("");
+	while (arr.length < 3){
+		arr.splice(0,0,"0");
+	}
 	arr.splice(arr.length-2,0,".");
 
 	var withComma = arr.join("");

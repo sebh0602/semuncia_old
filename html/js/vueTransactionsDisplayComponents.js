@@ -35,7 +35,7 @@ Vue.component("transactions-display",{
 		 	var nT2 = { //I need to do this to make it not reactive
 				date:nT.date,
 				type:nT.type,
-				amount:this.newTransactionAmountInCents,
+				amount:nT.amount,
 				title:nT.title,
 				categories:nT.categories
 			};
@@ -51,9 +51,6 @@ Vue.component("transactions-display",{
 		}
 	},
 	computed:{
-		newTransactionAmountInCents:function(){
-			return parseFloat(this.config.newTransaction.amount) * 100;
-		},
 		transactionDates:function(){
 			return Object.keys(this.transactions).sort().reverse();
 		}
