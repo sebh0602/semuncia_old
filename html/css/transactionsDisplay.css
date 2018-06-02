@@ -25,4 +25,6 @@
 	margin-bottom: 20px;
 	padding-top: 10px;
 	padding-bottom: 10px;
+	min-height: 48px;
+	min-width: 48px;
 }

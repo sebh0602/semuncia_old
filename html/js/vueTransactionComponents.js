@@ -12,7 +12,7 @@ Vue.component("transaction-component",{
 				<div class="transactionTop">
 					<div class="transactionTitle">
 						<span v-if="!editMode">{{transaction["title"]}}</span>
-						<span v-else><input type="text" v-model="transaction['title']" :placeholder="text.transactionTitle[language]"></span>
+						<span v-else><input type="text" v-model="transaction['title']" :placeholder="text.transactionTitle[language]" class="editMode transactionTitle"></span>
 					</div>
 
 					<div class="transactionAmount">
@@ -20,19 +20,19 @@ Vue.component("transaction-component",{
 							{{transaction["type"]}}{{addComma(transaction["amount"])}}
 						</span>
 						<span v-else>
-							<toggle-switch v-model="transaction.type" :valueOne="'+'" :valueTwo="'-'" colorOne="#ccffcc" colorTwo="#ffcccc"></toggle-switch>
-							<input type="number" step="any" min="0" v-model="displayAmount" :placeholder="text.transactionAmount[language]" class="amountInput">
+							<toggle-switch v-model="transaction.type" :valueOne="'+'" :valueTwo="'-'" colorOne="#ccffcc" colorTwo="#ffcccc" class="editMode typeToggle"></toggle-switch>
+							<input type="number" step="any" min="0" v-model="displayAmount" :placeholder="text.transactionAmount[language]" class="editMode amountInput">
 						</span>
 					</div>
 				</div>
 				<div class="transactionBottom">
 					<div class="category" v-for="(category,index) in transaction['categories']" :key="index" @click="removeCategory(index)">{{category}}</div>
 					<div v-if="editMode">
-						<input type="text" list="categories" :placeholder="text.categories[language]" v-model="newCategory" @keydown.enter="addCategory">
+						<input type="text" list="categories" :placeholder="text.categories[language]" v-model="newCategory" @keydown.enter="addCategory" class="editMode categoryInput">
 						<datalist id="categories">
 							<option v-for="(category,index) in categories" :key="index" :value="category[0]">{{category[1]}}</option>
 						</datalist>
-						<button @click="addCategory">{{text.addCategory[language]}}</button>
+						<button @click="addCategory" class="editMode addCategoryButton">{{text.addCategory[language]}}</button>
 					</div>
 				</div>
 			</div>
