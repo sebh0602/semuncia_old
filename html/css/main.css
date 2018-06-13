@@ -57,6 +57,8 @@
 	margin:20px;
 	background-color: white;
 	font-size: 1em;
+	display: flex;
+	flex-direction: column;
 }
 
 #main > div div.box > div.boxTitle{
@@ -66,7 +68,7 @@
 	background-color: #000888;
 	user-select: none;
 	display: flex;
-	flex-grow: 1;
+	flex-grow: 0;
 	justify-content: space-between;
 }
 
