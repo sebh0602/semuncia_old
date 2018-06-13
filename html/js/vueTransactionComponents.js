@@ -1,5 +1,5 @@
 Vue.component("transaction-component",{
-	props:["transactions","text","language","config","editMode","transaction"],
+	props:["transactions","text","language","config","transaction","index"],
 	data:function(){
 		return {
 			newCategory:""
@@ -7,32 +7,38 @@ Vue.component("transaction-component",{
 	},
 	template:`
 		<div class="transactionContainer">
-			<date-component v-if="editMode" v-model="transaction.date" :editMode="true" v-bind="$root.$data"></date-component>
+			<date-component v-if="transaction.editMode" v-model="transaction.date" :editMode="true" v-bind="$root.$data"></date-component>
 			<div class="transaction" v-bind:style="[backgroundColor(transaction)]">
 				<div class="transactionTop">
 					<div class="transactionTitle">
-						<span v-if="!editMode">{{transaction["title"]}}</span>
+						<span v-if="!transaction.editMode">{{transaction["title"]}}</span>
 						<span v-else><input type="text" v-model="transaction['title']" :placeholder="text.transactionTitle[language]" class="editMode transactionTitle"></span>
 					</div>
 
 					<div class="transactionAmount">
-						<span v-if="!editMode">
+						<span v-if="!transaction.editMode">
 							{{transaction["type"]}}{{addComma(transaction["amount"])}}
 						</span>
 						<span v-else>
-							<toggle-switch v-model="transaction.type" :valueOne="'+'" :valueTwo="'-'" colorOne="#ccffcc" colorTwo="#ffcccc" class="editMode typeToggle"></toggle-switch>
+							<toggle-switch v-model="transaction.type" :valueOne="'+'" :valueTwo="'-'" :symbolOne="'+'" :symbolTwo="'-'" colorOne="#ccffcc" colorTwo="#ffcccc" class="editMode typeToggle"></toggle-switch>
 							<input type="number" step="any" min="0" v-model="displayAmount" :placeholder="text.transactionAmount[language]" class="editMode amountInput">
 						</span>
 					</div>
 				</div>
 				<div class="transactionBottom">
-					<div class="category" v-for="(category,index) in transaction['categories']" :key="index" @click="removeCategory(index)">{{category}}</div>
-					<div v-if="editMode">
-						<input type="text" list="categories" :placeholder="text.categories[language]" v-model="newCategory" @keydown.enter="addCategory" class="editMode categoryInput">
-						<datalist id="categories">
-							<option v-for="(category,index) in categories" :key="index" :value="category[0]">{{category[1]}}</option>
-						</datalist>
-						<button @click="addCategory" class="editMode addCategoryButton">{{text.addCategory[language]}}</button>
+					<div class="bottomLeft">
+						<div class="category" v-for="(category,index) in transaction['categories']" :key="index" @click="removeCategory(index)">{{category}}</div>
+						<div v-if="transaction.editMode">
+							<input type="text" list="categories" :placeholder="text.categories[language]" v-model="newCategory" @keydown.enter="addCategory" class="editMode categoryInput">
+							<datalist id="categories">
+								<option v-for="(category,index) in categories" :key="index" :value="category[0]">{{category[1]}}</option>
+							</datalist>
+							<button @click="addCategory" class="editMode addCategoryButton">{{text.addCategory[language]}}</button>
+						</div>
+					</div>
+					<div class="bottomRight">
+						<button v-if="transaction.editMode && index != 'newTransaction'" @click="deleteTransaction" class="editMode deleteButton">🗑️</button>
+						<toggle-switch v-if="index != 'newTransaction'" v-model="transaction.editMode" :valueOne="true" :valueTwo="false" :symbolOne="'✔️'" :symbolTwo="'🖊️'" class="editToggle"></toggle-switch><!--:valueOne="🖊️" :valueTwo="✔️"-->
 					</div>
 				</div>
 			</div>
@@ -58,6 +64,17 @@ Vue.component("transaction-component",{
 			if (this.editMode){
 				this.transaction.categories.splice(index,1);
 			}
+		},
+		deleteTransaction:function(){
+			this.$emit("delete-transaction",this.index);
+
+			return;
+			var i = this.index;
+			if (app.transactions[i[0]].length == 1){
+				app.transactions[i[0]] == undefined;
+				return;
+			}
+			app.transactions[i[0]].splice(i[1],1);
 		}
 	},
 	computed:{

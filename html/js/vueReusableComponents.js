@@ -12,7 +12,7 @@ Vue.component("box-title",{
 });
 
 Vue.component("toggle-switch",{
-	props:["value","valueOne","valueTwo","colorOne","colorTwo"],
+	props:["value","valueOne","valueTwo","symbolOne","symbolTwo","colorOne","colorTwo"],
 	template:`
 		<div class="toggle" v-on:click="handleClick">
 			<div class="toggleBackground">
@@ -34,7 +34,7 @@ Vue.component("toggle-switch",{
 	},
 	computed:{
 		displayValue:function(){
-			return this.value;
+			return (this.value == this.valueOne) ? this.symbolOne : this.symbolTwo;
 		},
 		displayColor:function(){
 			return (this.value == this.valueOne) ? this.colorOne : this.colorTwo;

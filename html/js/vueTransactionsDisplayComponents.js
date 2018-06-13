@@ -11,13 +11,13 @@ Vue.component("transactions-display",{
 
 			<div id="transactions">
 				<div id="newTransactionContainer" v-if="config.showNewTransactionContainer">
-					<transaction-component :transaction="config.newTransaction" :editMode="true" v-bind="$root.$data"></transaction-component>
+					<transaction-component :transaction="config.newTransaction" :editMode="true" v-bind="$root.$data" :index="'newTransaction'"></transaction-component>
 					<button @click="addTransaction()" class="addButton">Add</button>
 				</div>
 
 				<div v-for="(date,index) in transactionDates" :key="date" class="dateContainer">
 					<date-component :value="date" :text="text" :language="language" :editMode="false"></date-component>
-					<transaction-component v-for="(transaction, index2) in transactions[date]" :key="index2" :transaction="transaction" :editMode="false" v-bind="$root.$data"></transaction-component>
+					<transaction-component v-for="(transaction, index2) in transactions[date]" :key="index2" :transaction="transaction" :index="[date,index2]" v-bind="$root.$data" v-on:delete-transaction="deleteTransaction"></transaction-component>
 				</div>
 			</div>
 		</div>`,
@@ -46,8 +46,17 @@ Vue.component("transactions-display",{
 				title:"",
 				type:"-",
 				amount:"",
-				categories:[]
+				categories:[],
+				editMode:true
 			};
+		},
+		deleteTransaction:function(i){
+			var dateTransactions = this.transactions[i[0]];
+			if (dateTransactions.length == 1){
+				Vue.delete(this.transactions,i[0]);
+			} else{
+				dateTransactions.splice(i[1],1);
+			}
 		}
 	},
 	computed:{

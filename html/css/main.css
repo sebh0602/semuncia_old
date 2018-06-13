@@ -21,23 +21,6 @@
 	justify-content: flex-start;
 }
 
-/*
---------------------
-|Add tr. | All tr. |
-|        |         |
-|--------|         |
-|Stats   |         |
-|        |         |
-|------------------|
-| Graph            |
-|                  |
-|                  |
-|                  |
-|                  |
---------------------
-
-*/
-
 @media screen and (max-width: 499px){
 	#main > div div.box{
 		width:calc(100vw - 50px);

@@ -26,9 +26,16 @@ div.transaction > div.transactionBottom{
 	flex-wrap: wrap;
 	margin-top: 10px;
 	align-items: flex-start;
+	justify-content: space-between;
 }
 
-div.transaction > div.transactionBottom > div.category{
+div.transaction > div.transactionBottom > div.bottomLeft{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+}
+
+div.transaction > div.transactionBottom > div.bottomLeft > div.category{
 	background-color: #A9BCD0;
 	padding:5px;
 	margin-right: 5px;
@@ -49,4 +56,29 @@ div.transaction .editMode.addCategoryButton{
 	padding:10px;
 	min-width: 48px;
 	min-height: 48px;
+}
+
+div.transaction > div.transactionBottom > div.bottomRight{
+	margin-left: auto;
+}
+
+div.transaction > div.transactionBottom > div.bottomRight > button.deleteButton{
+	width:80px;
+	height:30px;
+	border-radius: 15px;
+	border: none;
+	background-color: #a9bcd0;
+	color: white;
+}
+
+div.transaction > div.transactionBottom > div.bottomRight > div.editToggle div.toggleBackground{
+	background-color: #a9bcd0;
+}
+
+div.transaction > div.transactionBottom > div.bottomRight > div.editToggle div.toggleValueDisplay{
+	color:black;
+}
+
+div.transaction > div.transactionBottom > div.bottomRight > div.editToggle div.toggleToggle{
+	display: none;
 }

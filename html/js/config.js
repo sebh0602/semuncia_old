@@ -6,6 +6,7 @@ var config = {
 		title:"",
 		type:"-",
 		amount:"",
-		categories:[]
+		categories:[],
+		editMode:true
 	}
 };
