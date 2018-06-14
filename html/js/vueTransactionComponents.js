@@ -38,7 +38,7 @@ Vue.component("transaction-component",{
 					</div>
 					<div class="bottomRight">
 						<button v-if="transaction.editMode && index != 'newTransaction'" @click="deleteTransaction" class="editMode deleteButton">🗑️</button>
-						<toggle-switch v-if="index != 'newTransaction'" v-model="transaction.editMode" :valueOne="true" :valueTwo="false" :symbolOne="'✔️'" :symbolTwo="'🖊️'" class="editToggle"></toggle-switch><!--:valueOne="🖊️" :valueTwo="✔️"-->
+						<toggle-switch v-if="index != 'newTransaction'" v-model="transaction.editMode" :valueOne="true" :valueTwo="false" :symbolOne="'✔️'" :symbolTwo="'🖊️'" class="editToggle"></toggle-switch>
 					</div>
 				</div>
 			</div>
@@ -61,7 +61,7 @@ Vue.component("transaction-component",{
 			}
 		},
 		removeCategory:function(index){
-			if (this.editMode){
+			if (this.transaction.editMode){
 				this.transaction.categories.splice(index,1);
 			}
 		},
