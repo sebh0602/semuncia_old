@@ -8,5 +8,6 @@ var config = {
 		amount:"",
 		categories:[],
 		editMode:true
-	}
+	},
+	analysisSearchText:""
 };

@@ -3,7 +3,53 @@ Vue.component("analysis-display",{
 	template:`
 		<div class="box" id="analysis">
 			<box-title>{{text.analysis[language]}}</box-title>
-			<div id="content"></div>
+			<div id="content">
+				<div id="inputs">
+					<input type="text" v-model="config.analysisSearchText">
+					<button>🔍</button>
+				</div>
+				<div id="results">
+					<div><span v-for="r in exampleResults">{{r}}<br></span>...</div>
+					<div>totalValue: {{totalValue}}</div>
+				</div>
+			</div>
 		</div>`,
-
+	computed:{
+		matchingTransactions:function(){
+			var matches = [];
+			var sT = this.config.analysisSearchText.toLowerCase();
+			if (sT == ""){
+				return [];
+			}
+			for (d in this.transactions){
+				for (t in this.transactions[d]){
+					t = this.transactions[d][t];
+					var categories = [];
+					for (c in t.categories){
+						categories.push(t.categories[c].toLowerCase());
+					}
+					if (t.title.toLowerCase().indexOf(sT) != -1 || categories.indexOf(sT) != -1){
+						matches.push(t);
+					}
+				}
+			}
+			return matches;
+		},
+		exampleResults:function(){
+			var match = this.matchingTransactions;
+			var results = [];
+			for (var i = 0; i < match.length && i < 3; i++){
+				results.push(match[i].title);
+			}
+			return results;
+		},
+		totalValue:function(){
+			var total = 0;
+			for (t in this.matchingTransactions){
+				t = this.matchingTransactions[t];
+				total += t.amount;
+			}
+			return addDecimalSeparators(total);
+		}
+	}
 });
