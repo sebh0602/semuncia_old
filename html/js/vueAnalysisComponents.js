@@ -5,12 +5,44 @@ Vue.component("analysis-display",{
 			<box-title>{{text.analysis[language]}}</box-title>
 			<div id="content">
 				<div id="inputs">
-					<input type="text" v-model="config.analysisSearchText">
-					<button>🔍</button>
+					<input type="text" v-model="config.analysisSearchText" placeholder="🔍">
+					<div><span v-for="r in exampleResults">{{r}}, </span>...</div>
 				</div>
 				<div id="results">
-					<div><span v-for="r in exampleResults">{{r}}<br></span>...</div>
-					<div>totalValue: {{totalValue}}</div>
+
+
+					<div class="singleStatContainer">
+						<div class="subHeader">
+							{{text.totalValue[language]}}
+						</div>
+						<div class="amount">
+							{{totalValue}}
+						</div>
+					</div>
+					<div class="singleStatContainer">
+						<div class="subHeader">
+							{{text.totalEarned[language]}}
+						</div>
+						<div class="amount">
+							{{totalEarned}}
+						</div>
+					</div>
+					<div class="singleStatContainer">
+						<div class="subHeader">
+							{{text.totalSpent[language]}}
+						</div>
+						<div class="amount">
+							{{totalSpent}}
+						</div>
+					</div>
+					<div class="singleStatContainer">
+						<div class="subHeader">
+							{{text.numberOfTransactions[language]}}
+						</div>
+						<div class="amount">
+							{{numberOfTransactions}}
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>`,
@@ -50,6 +82,29 @@ Vue.component("analysis-display",{
 				total += t.amount;
 			}
 			return addDecimalSeparators(total);
+		},
+		totalEarned:function(){
+			var total = 0;
+			for (t in this.matchingTransactions){
+				t = this.matchingTransactions[t];
+				if (t.type == "+"){
+					total += t.amount;
+				}
+			}
+			return addDecimalSeparators(total);
+		},
+		totalSpent:function(){
+			var total = 0;
+			for (t in this.matchingTransactions){
+				t = this.matchingTransactions[t];
+				if (t.type == "-"){
+					total += t.amount;
+				}
+			}
+			return addDecimalSeparators(total);
+		},
+		numberOfTransactions:function(){
+			return this.matchingTransactions.length;
 		}
 	}
 });

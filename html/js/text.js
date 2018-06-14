@@ -108,5 +108,21 @@ var text = {
 	github:{
 		en:"GitHub",
 		de:"GitHub"
+	},
+	totalValue:{
+		en:"Total Value",
+		de:"Gesamtwert"
+	},
+	totalEarned:{
+		en:"Total Earned",
+		de:"Insgesamt verdient"
+	},
+	totalSpent:{
+		en:"Total Spent",
+		de:"Insgesamt ausgegeben"
+	},
+	numberOfTransactions:{
+		en:"# of transactions",
+		de:"Anzahl an Transaktionen"
 	}
 };
