@@ -5,10 +5,6 @@
 	background-color: #DDDDDD;
 	background-color: #d8dbe2;
 
-	display: flex;
-	flex-wrap: wrap;
-	align-items: flex-start;
-	justify-content: space-around;
 	overflow-x: hidden;
 }
 
@@ -19,6 +15,13 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-start;
+}
+
+#main > #groupTwo{
+	width:100%;
+	display:flex;
+	align-items: center;
+	justify-content: center;
 }
 
 @media screen and (max-width: 499px){
@@ -39,13 +42,13 @@
 	}
 }
 
-@media screen and (min-width: 1000px) and (max-height: 914px){ /*914, because 850/0.93 = 913.978*/
+@media screen and (min-width: 1000px) and (max-height: 839px){ /*839, because 780/0.93 = 838.7*/
 	#main > #groupOne{
-		height:850px;
+		height:780px;
 	}
 }
 
-@media screen and (min-width: 1000px) and (min-height: 915px){
+@media screen and (min-width: 1000px) and (min-height: 840px){
 	#main > #groupOne{
 		height:100%;
 	}
@@ -53,7 +56,7 @@
 
 #main > div div.box{
 	min-height: 350px;
-	height:calc(50% - 40.02px); /*I hate Edge with a burning passion*/
+	height:calc(46.5vh - 40.02px); /*46.4 = 93:2 / I hate Edge with a burning passion*/
 	margin:20px;
 	background-color: white;
 	font-size: 1em;
