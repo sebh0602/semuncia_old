@@ -9,8 +9,6 @@ Vue.component("analysis-display",{
 					<div><span v-for="r in exampleResults">{{r}}, </span>...</div>
 				</div>
 				<div id="results">
-
-
 					<div class="singleStatContainer">
 						<div class="subHeader">
 							{{text.totalValue[language]}}
@@ -50,9 +48,7 @@ Vue.component("analysis-display",{
 		matchingTransactions:function(){
 			var matches = [];
 			var sT = this.config.analysisSearchText.toLowerCase();
-			if (sT == ""){
-				return [];
-			}
+
 			for (d in this.transactions){
 				for (t in this.transactions[d]){
 					t = this.transactions[d][t];
