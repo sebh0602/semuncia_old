@@ -124,5 +124,13 @@ var text = {
 	numberOfTransactions:{
 		en:"# of transactions",
 		de:"Anzahl an Transaktionen"
+	},
+	setInitialAmount:{
+		en:"Set initial amount",
+		de:"Anfangsbetrag einstellen"
+	},
+	enterInitialAmount:{
+		en:"Enter initial amount",
+		de:"Anfangsbetrag eingeben"
 	}
 };

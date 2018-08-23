@@ -24,7 +24,10 @@ Vue.component("side-nav",{
 
 				<side-nav-item v-bind:text="text.importJSON[language]" @click="selectImportTransactionsFile"></side-nav-item>
 				<input type="file" v-on:change="importTransactions" id="transactionsInput" accept=".json">
-				<side-nav-item v-bind:text="text.exportJSON[language]"></side-nav-item>
+				<side-nav-item v-bind:text="text.exportJSON[language]" @click="alert('Not supported yet!')"></side-nav-item>
+
+				<side-nav-item v-bind:text="text.setInitialAmount[language]" @click="setInitialAmount"></side-nav-item>
+
 				<side-nav-item v-bind:text="text.github[language]" @click="openGithub"></side-nav-item>
 			</div>
 		</div>`,
@@ -59,6 +62,19 @@ Vue.component("side-nav",{
 			}
 			reader.readAsText(event.target.files[0]);
 			document.getElementById("transactionsInput").value = ""; //so the onchange event works
+		},
+		setInitialAmount:function(){
+			var val = prompt(text.enterInitialAmount[this.language],app.initialAmount/100);
+			val = val.split(",").join(".");
+			val = parseFloat(val);
+			if (isNaN(val)){
+				this.setInitialAmount(); //try again
+				return;
+			}
+			val *= 100;
+			val = Math.round(val);
+			app.initialAmount = val;
+			app.config.showSideNav = false;
 		},
 		openGithub:function(){
 			window.open("https://github.com/sebh0602/semuncia");
