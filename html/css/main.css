@@ -53,28 +53,3 @@
 		height:100%;
 	}
 }
-
-#main > div div.box{
-	min-height: 350px;
-	height:calc(46.5vh - 40.02px); /*46.4 = 93:2 / I hate Edge with a burning passion*/
-	margin:20px;
-	background-color: white;
-	font-size: 1em;
-	display: flex;
-	flex-direction: column;
-}
-
-#main > div div.box > div.boxTitle{
-	font-size: 1.5em;
-	border-bottom: 1px solid black;
-	color:white;
-	background-color: #000888;
-	user-select: none;
-	display: flex;
-	flex-grow: 0;
-	justify-content: space-between;
-}
-
-#main > div div.box > div.boxTitle > div{
-	padding:15px;
-}
