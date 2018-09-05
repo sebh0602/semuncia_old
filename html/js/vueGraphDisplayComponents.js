@@ -3,8 +3,9 @@ Vue.component("graph-display",{
 	template:`
 		<div id="graphDisplay" class="box">
 			<box-title>{{text.graph[language]}}</box-title>
-			<canvas id="graphCanvas"></canvas>
-
+			<div>
+				<canvas id="graphCanvas"></canvas>
+			</div>
 		</div>`,
 	watch:{
 		transactions:function(val){
@@ -33,6 +34,10 @@ Vue.component("graph-display",{
 							data:data,
 						}
 					]
+				},
+				options: {
+  					responsive: true,
+  					maintainAspectRatio: false
 				}
 			});
 		}
