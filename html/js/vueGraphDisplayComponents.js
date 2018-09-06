@@ -9,26 +9,48 @@ Vue.component("graph-display",{
 		</div>`,
 	watch:{
 		transactions:function(val){
+			if (this.transactions.length == 0){
+				return;
+			}
 			var data = [];
-			var labels = [];
+			var days = [];
+
+			//this makes a list of all days from the first transaction to the last/today (whichever is later) and calculates the amount of money at those times
 			var x = this.initialAmount;
-			for (d in this.transactions){
-				for (t in this.transactions[d]){
-					t = this.transactions[d][t];
+			var transactionDates = Object.keys(this.transactions).sort();
+			var oldest = transactionDates[0];
+			var newest = transactionDates[transactionDates.length - 1];
+			if (new Date(newest) < new Date()){ //today is more current
+				newest = new Date().toISOString().split("T")[0];
+			}
+
+			var currentDate = oldest;
+			var cD = new Date(currentDate);
+			cD.setHours(12); //this is to avoid issues with DST
+			var nD = new Date(newest);
+			nD.setHours(12);
+
+			while (cD <= nD){
+				days.push(cD.toISOString().split("T")[0]);
+				cD.setDate(cD.getDate() + 1); //add one day
+			}
+
+			for (d in days){
+				for (t in this.transactions[days[d]]){
+					t = this.transactions[days[d]][t];
 					if (t.type == "+"){
 						x += t.amount;
 					} else{
 						x -= t.amount;
 					}
 				}
-				labels.push(d);
 				data.push(x/100);
 			}
 			var ctx = document.getElementById("graphCanvas");
 			var lineChart = new Chart(ctx,{
 				type:"line",
 				data:{
-					labels:labels,
+					labels:days,
 					datasets:[
 						{
 							data:data,
