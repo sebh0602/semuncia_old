@@ -7,8 +7,8 @@ Vue.component("graph-display",{
 				<canvas id="graphCanvas"></canvas>
 			</div>
 		</div>`,
-	watch:{
-		transactions:function(val){
+	methods:{
+		updateGraph:function(val){
 			if (this.transactions.length == 0){
 				return;
 			}
@@ -53,15 +53,55 @@ Vue.component("graph-display",{
 					labels:days,
 					datasets:[
 						{
+							label:this.text.balanceOverTime[this.language],
 							data:data,
+							borderColor:"#000888",
+							backgroundColor:"#a9bcd0",
+							pointHoverBackgroundColor:"#000888",
+							pointHoverBorderColor:"#a9bcd0",
+							pointHitRadius:3,
+							pointHoverRadius:0,
+							pointRadius:0,
 						}
 					]
 				},
 				options: {
   					responsive: true,
-  					maintainAspectRatio: false
+  					maintainAspectRatio: false,
+					animation: {
+						duration: 0,
+					},
+					hover: {
+						animationDuration: 0,
+					},
+					responsiveAnimationDuration: 0,
+					tooltips:{
+						mode:"index",
+						intersect:false,
+					},
+					layout:{
+						padding:{
+							left:20,
+							right:20,
+							top:20,
+							bottom:20
+						}
+					},
+					scales:{
+						yAxes:[{
+							type:"linear",
+							ticks:{
+								beginAtZero:true,
+								stepSize:100,
+							}
+						}]
+					}
 				}
 			});
 		}
+	},
+	watch:{
+		transactions:function(){this.updateGraph()},
+		language:function(){this.updateGraph()}, //for the label
 	}
 });

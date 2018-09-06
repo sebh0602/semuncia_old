@@ -4,7 +4,7 @@ be modern and flat, similar to material/UWP and fully responsive.
 
 ## color
 The color palette contains the following colors:
-* #000888 - navbar
+* #000888 - navbar (semuncia-blue)
 * #d8dbe2 - background
 * #a9bcd0 - light blue
 	* Used for categories and transactions in editMode

@@ -132,5 +132,9 @@ var text = {
 	enterInitialAmount:{
 		en:"Enter initial amount",
 		de:"Anfangsbetrag eingeben"
+	},
+	balanceOverTime:{
+		en:"Current balance over time",
+		de:"Aktueller Betrag im Lauf der Zeit"
 	}
 };
