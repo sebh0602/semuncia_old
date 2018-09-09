@@ -61,32 +61,32 @@ var text = {
 	},
 	weekdays:{
 		1:{
-			en:"Mon",
-			de:"Mo"
+			en:"Monday",
+			de:"Montag"
 		},
 		2:{
-			en:"Tue",
-			de:"Di"
+			en:"Tuesday",
+			de:"Dienstag"
 		},
 		3:{
-			en:"Wed",
-			de:"Mi"
+			en:"Wednesday",
+			de:"Mittwoch"
 		},
 		4:{
-			en:"Thu",
-			de:"Do"
+			en:"Thursday",
+			de:"Donnerstag"
 		},
 		5:{
-			en:"Fri",
-			de:"Fr"
+			en:"Friday",
+			de:"Freitag"
 		},
 		6:{
-			en:"Sat",
-			de:"Sa"
+			en:"Saturday",
+			de:"Samstag"
 		},
 		0:{
-			en:"Sun",
-			de:"So"
+			en:"Sunday",
+			de:"Sonntag"
 		}
 	},
 	analysis:{
