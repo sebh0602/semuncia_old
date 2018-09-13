@@ -4,7 +4,9 @@
 
 # Issues
 * rounding errors (0.1+0.2)
+* graph "stutters" after change in data
 
 # New Features
 * export json
 * make it a PWA
+* return (key 13) to add transaction

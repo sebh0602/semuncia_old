@@ -89,7 +89,7 @@ Vue.component("stats-display",{
 				if (relevantTransactions[i].type == "-"){
 					x += relevantTransactions[i].amount;
 				}
-			}
+			}			
 			return addDecimalSeparators(x);
 		},
 		monthTotal:function(){
@@ -102,7 +102,7 @@ Vue.component("stats-display",{
 					x -= relevantTransactions[i].amount;
 				}
 			}
-			return addDecimalSeparators(x);;
+			return ((x > 0) ? "+" : "") + addDecimalSeparators(x);
 		}
 	}
 });
