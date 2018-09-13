@@ -12,12 +12,12 @@ var text = {
 		de:"Deutsch"
 	},
 	importJSON:{
-		en:"Import JSON",
-		de:"JSON importieren"
+		en:"Import data",
+		de:"Daten importieren"
 	},
 	exportJSON:{
-		en:"Export JSON",
-		de:"JSON exportieren"
+		en:"Export data",
+		de:"Daten exportieren"
 	},
 	login:{
 		en:"Login",
