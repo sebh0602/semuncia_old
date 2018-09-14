@@ -10,3 +10,5 @@
 * export json
 * make it a PWA
 * return (key 13) to add transaction
+* add a plus in front of positive balance
+* add plus/minus in front of total earned/spent
