@@ -1,9 +1,1 @@
-#main div > #graphDisplay.box{
-	height:calc(93vh - 40px);
-	width:95vw;
-}
-
-#graphCanvas{
-	width: 100%;
-	height: 100%;
-}
+#main div>#graphDisplay.box{height:calc(93vh - 40px);width:95vw}#graphCanvas{width:100%;height:100%}

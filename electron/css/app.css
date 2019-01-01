@@ -1,7 +1,1 @@
-#app{
-	display: none;
-	width:100%;
-	height:100%;
-	flex-direction: column;
-	cursor:default;
-}
+#app{display:none;width:100%;height:100%;flex-direction:column;cursor:default}
