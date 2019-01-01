@@ -3,7 +3,7 @@ const { app, BrowserWindow } = require('electron');
 let win;
 
 function createWindow () {
-  win = new BrowserWindow({ show: false });
+  win = new BrowserWindow({ show: false, icon: __dirname + "/images/logo_16x16.png" });
 
   win.maximize();
 
