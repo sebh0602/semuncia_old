@@ -7,6 +7,8 @@ function createWindow () {
 
   win.maximize();
 
+  win.setMenu(null);
+
   win.loadFile("index.html");
 
   win.once('ready-to-show', () => {
