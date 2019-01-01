@@ -1,0 +1,60 @@
+#sideNav{
+	position: fixed;
+	left:0;
+	top:0;
+	z-index: 1;
+	height: 100%;
+	width:100%;
+
+	background-color: rgba(48,52,63,0.8);
+}
+
+#sideNav > #nav{
+	background-color: white;
+	width:300px;
+	height: 100%;
+	overflow-y:auto;
+}
+
+#sideNav > #nav > div{
+	width:90%;
+
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+
+	font-size: 24px;
+	user-select: none;
+
+	border-bottom: 1px solid black;
+
+	cursor: pointer;
+}
+
+#sideNav > #nav > input{
+	display: none;
+}
+
+#sideNav > #nav > #sideNavTitle{
+	display:flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-right: 1%;
+	width:94%;
+
+	background-color:#000888;
+	color:white;
+
+	cursor: default;
+}
+
+#sideNav > #nav > #sideNavTitle > #sideNavCloseButton{
+	height:5vh;
+	width:5vh;
+	min-height: 48px;
+	min-width: 48px;
+	cursor:pointer;
+}

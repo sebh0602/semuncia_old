@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Semuncia</title>
+	<meta charset="UTF-8">
+	<meta name="theme-color" content="#000888">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Track your expenses, manage your finances and analyse your spending habits with semuncia.com.">
+	<meta name="keywords" content="money, finances, expenses, tracking, management">
+	<meta name="author" content="Sebastian Hietsch">
+
+	<link rel="stylesheet" type="text/css" href="css/body.css">
+	<link rel="stylesheet" type="text/css" href="css/app.css">
+	<link rel="stylesheet" type="text/css" href="css/header.css">
+	<link rel="stylesheet" type="text/css" href="css/sideNav.css">
+	<link rel="stylesheet" type="text/css" href="css/toggleSwitch.css">
+	<link rel="stylesheet" type="text/css" href="css/transaction.css">
+
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/box.css">
+	<link rel="stylesheet" type="text/css" href="css/addTransaction.css">
+	<link rel="stylesheet" type="text/css" href="css/statsDisplay.css">
+	<link rel="stylesheet" type="text/css" href="css/analysis.css">
+	<link rel="stylesheet" type="text/css" href="css/transactionsDisplay.css">
+	<link rel="stylesheet" type="text/css" href="css/graphDisplay.css">
+
+	<script src="dependencies/vuejs/vue.min.js" defer></script>
+	<!--Use vue.min.js for prod and vue.js for dev-->
+	<script src="dependencies/chartjs/Chart.bundle.min.js" defer></script>
+	<!--Use Chart.bundle.min.js for prod and Chart.bundle.js for dev-->
+	<script src="js/config.js" defer></script>
+	<script src="js/text.js" defer></script>
+	<script src="js/vueIcons.js" defer></script>
+
+	<script src="js/vueHeaderComponents.js" defer></script>
+	<script src="js/vueSideNavComponents.js" defer></script>
+
+	<script src="js/vueReusableComponents.js" defer></script>
+	<script src="js/vueTransactionComponents.js" defer></script>
+
+	<script src="js/vueTransactionsDisplayComponents.js" defer></script>
+	<script src="js/vueStatsDisplayComponents.js" defer></script>
+	<script src="js/vueAnalysisComponents.js" defer></script>
+	<script src="js/vueGraphDisplayComponents.js" defer></script>
+
+	<script src="js/vueMethods.js" defer></script>
+	<script src="js/otherMethods.js" defer></script>
+	<script src="js/vueMain.js" defer></script>
+</head>
+
+<body>
+	<div id="app">
+		<custom-header v-bind:config="config" :text="text" :language="language"></custom-header>
+
+		<side-nav v-bind="$root.$data"></side-nav>
+
+		<div id="main">
+			<div id="groupOne">
+					<transactions-display v-bind="$root.$data"></transactions-display>
+					<stats-display v-bind="$root.$data"></stats-display>
+					<analysis-display v-bind="$root.$data"></analysis-display>
+			</div>
+			<div id="groupTwo">
+				<graph-display v-bind="$root.$data"></graph-display>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
