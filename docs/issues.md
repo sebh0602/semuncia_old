@@ -1,10 +1,13 @@
-# Testing
+# Testing (Things which might be problems)
 * is the date deleted once a transaction gets deleted?
 * how well does the graph respond to changes in data?
 
 # Issues
 * rounding errors (0.1+0.2)
 * graph "stutters" after change in data
+* make logo prettier
+* why is it so slow?
+* Show more example transactions when entering searchtext in analysis
 
 # New Features
 * export json
@@ -12,3 +15,6 @@
 * return (key 13) to add transaction
 * add a plus in front of positive balance
 * add plus/minus in front of total earned/spent
+* add recurring transactions
+* add a search function
+* add difference to analysis

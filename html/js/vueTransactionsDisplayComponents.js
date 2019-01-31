@@ -33,7 +33,7 @@ Vue.component("transactions-display",{
 			}
 			var nT = this.config.newTransaction;
 		 	var nT2 = { //I need to do this to make it not reactive
-				date:nT.date,
+				date:date,
 				type:nT.type,
 				amount:nT.amount,
 				title:nT.title,
