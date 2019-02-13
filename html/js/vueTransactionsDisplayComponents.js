@@ -15,9 +15,9 @@ Vue.component("transactions-display",{
 					<button @click="addTransaction()" class="addButton">Add</button>
 				</div>
 
-				<div v-for="(date,index) in transactionDates" :key="date" class="dateContainer">
-					<date-component :value="date" :text="text" :language="language" :editMode="false"></date-component>
-					<transaction-component v-for="(transaction, index2) in transactions[date]" :key="index2" :transaction="transaction" :index="[date,index2]" v-bind="$root.$data" v-on:delete-transaction="deleteTransaction"></transaction-component>
+				<div v-for="(date,index) in transactionDates" :key="date + '_container'" class="dateContainer">
+					<date-component :value="date" :text="text" :language="language" :editMode="false" :key="date + '_component'"></date-component>
+					<transaction-component v-for="(transaction, index2) in transactions[date]" :key="date + '_' + index2.toString()" :transaction="transaction" :index="[date,index2]" v-bind="$root.$data" v-on:delete-transaction="deleteTransaction"></transaction-component>
 				</div>
 			</div>
 		</div>`,

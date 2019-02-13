@@ -1,5 +1,4 @@
 # Testing (Things which might be problems)
-* is the date deleted once a transaction gets deleted?
 * how well does the graph respond to changes in data?
 
 # Issues
