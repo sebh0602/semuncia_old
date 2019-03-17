@@ -19,9 +19,9 @@ var text = {
 		en:"Export data",
 		de:"Daten exportieren"
 	},
-	login:{
-		en:"Login",
-		de:"Anmelden"
+	sync:{
+		en:"Sync",
+		de:"Synchronisieren"
 	},
 	addTransaction:{
 		en:"Add Transaction",

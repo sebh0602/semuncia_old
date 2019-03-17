@@ -4,7 +4,7 @@ Vue.component("custom-header",{
 		<div id="header">
 			<div @click="showSideNav" id="showSideNavDiv"><menu-icon></menu-icon></div>
 			<div id="title">Semuncia</div>
-			<div>{{text.login[language]}}</div>
+			<div>{{text.sync[language]}}</div>
 		</div>`,
 	methods:{
 		showSideNav:function(){
