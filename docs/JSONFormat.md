@@ -3,8 +3,9 @@
 ```JSON
 data = {
 	"config":{
-		"language":"en"
+		"showSideNav":false
 	},
+	"language":"en",
 	"text":{
 		"example":{
 			"en":"example",

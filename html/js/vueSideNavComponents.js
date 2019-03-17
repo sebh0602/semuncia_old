@@ -24,7 +24,7 @@ Vue.component("side-nav",{
 
 				<side-nav-item v-bind:text="text.importJSON[language]" @click="selectImportTransactionsFile"></side-nav-item>
 				<input type="file" v-on:change="importTransactions" id="transactionsInput" accept=".json">
-				<side-nav-item v-bind:text="text.exportJSON[language]" @click="alert('Not supported yet!')"></side-nav-item>
+				<side-nav-item v-bind:text="text.exportJSON[language]" @click="exportTransactions"></side-nav-item>
 
 				<side-nav-item v-bind:text="text.setInitialAmount[language]" @click="setInitialAmount"></side-nav-item>
 
@@ -62,6 +62,27 @@ Vue.component("side-nav",{
 			}
 			reader.readAsText(event.target.files[0]);
 			document.getElementById("transactionsInput").value = ""; //so the onchange event works
+		},
+		exportTransactions:function(){
+			var exportableJSON = {};
+			exportableJSON.transactions = app.transactions;
+			exportableJSON.initialAmount = app.initialAmount;
+			exportableJSON.recurringTransactions = app.recurringTransactions;
+			exportableJSON.config = app.config;
+			exportableJSON.language = app.language;
+			app.config.showSideNav = false;
+			var stringified = JSON.stringify(exportableJSON,null,"\t");
+			var blob = new Blob([stringified], {type:"application/json"});
+			var a = document.createElement("a");
+			var url = URL.createObjectURL(blob);
+			a.href = url;
+			a.download = "testfile.json";
+			document.body.appendChild(a);
+			a.click();
+			setTimeout(function() { //not sure why this is done like this (copied from SO)
+				document.body.removeChild(a);
+				window.URL.revokeObjectURL(url);
+			}, 0);
 		},
 		setInitialAmount:function(){
 			var val = prompt(text.enterInitialAmount[this.language],app.initialAmount/100);
