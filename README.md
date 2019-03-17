@@ -7,4 +7,4 @@ Once finished it will be...
 transaction whenever you spend or earn money and view informative statistics
 on your spending habits.
 
-[semuncia.com]()
+For the beta-version visit [semuncia.com]().

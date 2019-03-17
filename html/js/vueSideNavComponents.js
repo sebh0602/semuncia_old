@@ -70,19 +70,21 @@ Vue.component("side-nav",{
 			exportableJSON.recurringTransactions = app.recurringTransactions;
 			exportableJSON.config = app.config;
 			exportableJSON.language = app.language;
-			app.config.showSideNav = false;
+
+			var fileName = "JSON_export_" + new Date().toISOString().split("T")[0] + ".json";
 			var stringified = JSON.stringify(exportableJSON,null,"\t");
 			var blob = new Blob([stringified], {type:"application/json"});
 			var a = document.createElement("a");
 			var url = URL.createObjectURL(blob);
 			a.href = url;
-			a.download = "testfile.json";
+			a.download = fileName;
 			document.body.appendChild(a);
 			a.click();
 			setTimeout(function() { //not sure why this is done like this (copied from SO)
 				document.body.removeChild(a);
 				window.URL.revokeObjectURL(url);
 			}, 0);
+			app.config.showSideNav = false;
 		},
 		setInitialAmount:function(){
 			var val = prompt(text.enterInitialAmount[this.language],app.initialAmount/100);
