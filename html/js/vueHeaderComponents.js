@@ -12,7 +12,7 @@ Vue.component("custom-header",{
 		},
 		showSyncMenu:function(){
 			//the function of this function will change soon
-			var hostname = "ws://" + window.location.hostname + "/ws/"; //ws/wss?
+			var hostname = (window.location.protocol == "https:") ? "wss://" : "ws://" + window.location.hostname + "/ws/";
 			var wSocket = new WebSocket(hostname);
 			wSocket.onopen = function(event){
 				wSocket.send(new Date().toISOString());

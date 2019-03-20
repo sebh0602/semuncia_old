@@ -1,6 +1,10 @@
 # setup
 This is a guide for those, who want to set up semuncia themselves.
 
+## required software
+* nginx (or other webserver with similar functionality)
+* nodejs
+
 ## nginx
 WebSockets
 1. Add ` map $http_upgrade $connection_upgrade {default upgrade;
