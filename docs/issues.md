@@ -1,5 +1,6 @@
 # Testing (Things which might be problems)
 * how well does the graph respond to changes in data?
+* do the numbers add up? (total earned and spent)
 
 # Issues
 * rounding errors (0.1+0.2)
@@ -17,3 +18,4 @@
 * add recurring transactions
 * add a search function
 * add difference to analysis
+* redirect www to regular
