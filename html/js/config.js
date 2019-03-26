@@ -9,5 +9,6 @@ var config = {
 		categories:[],
 		editMode:true
 	},
-	analysisSearchText:""
+	analysisSearchText:"",
+	popup:null
 };

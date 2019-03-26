@@ -5,19 +5,14 @@ Vue.component("custom-header",{
 			<div @click="showSideNav" id="showSideNavDiv"><menu-icon></menu-icon></div>
 			<div id="title">Semuncia</div>
 			<div @click="showSyncMenu">{{text.sync[language]}}</div>
-		</div>`,
+		</div>
+		`,
 	methods:{
 		showSideNav:function(){
 			app.config.showSideNav = true;
 		},
 		showSyncMenu:function(){
-			//the function of this function will change soon
-			var hostname = (window.location.protocol == "https:") ? "wss://" : "ws://" + window.location.hostname + "/ws/";
-			var wSocket = new WebSocket(hostname);
-			wSocket.onopen = function(event){
-				wSocket.send(new Date().toISOString());
-				console.log("sent date")
-			}
+			app.config.popup = "sync";
 		}
 	}
 });

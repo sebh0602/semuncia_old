@@ -134,7 +134,11 @@ var text = {
 		de:"Anfangsbetrag eingeben"
 	},
 	balanceOverTime:{
-		en:"Current balance over time",
+		en:"Balance over time",
 		de:"Aktueller Betrag im Lauf der Zeit"
+	},
+	synchronisation:{
+		en:"Synchronisation",
+		de:"Synchronisation"
 	}
 };

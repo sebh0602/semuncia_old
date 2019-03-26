@@ -22,21 +22,20 @@
 	<!--This is for the stupid IE-Detection thing to work-->
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
 
-	<link rel="stylesheet" type="text/css" href="css/body.css">
+	<link rel="stylesheet" type="text/css" href="css/addTransaction.css">
+	<link rel="stylesheet" type="text/css" href="css/analysis.css">
 	<link rel="stylesheet" type="text/css" href="css/app.css">
+	<link rel="stylesheet" type="text/css" href="css/body.css">
+	<link rel="stylesheet" type="text/css" href="css/box.css">
+	<link rel="stylesheet" type="text/css" href="css/graphDisplay.css">
 	<link rel="stylesheet" type="text/css" href="css/header.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/popup.css">
 	<link rel="stylesheet" type="text/css" href="css/sideNav.css">
+	<link rel="stylesheet" type="text/css" href="css/statsDisplay.css">
 	<link rel="stylesheet" type="text/css" href="css/toggleSwitch.css">
 	<link rel="stylesheet" type="text/css" href="css/transaction.css">
-
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<link rel="stylesheet" type="text/css" href="css/box.css">
-	<link rel="stylesheet" type="text/css" href="css/addTransaction.css">
-	<link rel="stylesheet" type="text/css" href="css/statsDisplay.css">
-	<link rel="stylesheet" type="text/css" href="css/analysis.css">
 	<link rel="stylesheet" type="text/css" href="css/transactionsDisplay.css">
-	<link rel="stylesheet" type="text/css" href="css/graphDisplay.css">
-
 
 
 	<script src="dependencies/vuejs/vue.min.js" defer></script>
@@ -48,6 +47,7 @@
 	<script src="js/vueIcons.js" defer></script>
 
 	<script src="js/vueHeaderComponents.js" defer></script>
+	<script src="js/vueSyncPopupComponents.js" defer></script>
 	<script src="js/vueSideNavComponents.js" defer></script>
 
 	<script src="js/vueReusableComponents.js" defer></script>
@@ -90,6 +90,7 @@
 	<div id="app">
 		<custom-header v-bind:config="config" :text="text" :language="language"></custom-header>
 
+		<sync-popup v-bind="$root.$data"></sync-popup>
 		<side-nav v-bind="$root.$data"></side-nav>
 
 		<div id="main">
