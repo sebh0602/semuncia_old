@@ -10,5 +10,9 @@ var config = {
 		editMode:true
 	},
 	analysisSearchText:"",
-	popup:null
+	popup:null,
+	sync:{
+		isActivated:false,
+		id:null
+	}
 };

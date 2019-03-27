@@ -140,5 +140,17 @@ var text = {
 	synchronisation:{
 		en:"Synchronisation",
 		de:"Synchronisation"
+	},
+	id:{
+		en:"ID",
+		de:"ID"
+	},
+	password:{
+		en:"Password",
+		de:"Passwort"
+	},
+	submit:{
+		en:"Submit",
+		de:"Ok"
 	}
 };

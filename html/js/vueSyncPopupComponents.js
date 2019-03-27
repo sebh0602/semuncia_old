@@ -9,11 +9,14 @@ Vue.component("sync-popup",{
 						<close-icon></close-icon>
 					</div>
 				</div>
-				<ul>
-					<li>Toggle</li>
-					<li>ID</li>
-					<li>Password</li>
-				</ul>
+				<div class="popupContent">
+					{{text.synchronisation[language]}}:
+						<toggle-switch v-model="config.sync.isActivated" :valueOne="false" :valueTwo="true" :symbolOne="'❌'" :symbolTwo="'✔️'" :colorOne="'#ffcccc'" :colorTwo="'#ccffcc'"></toggle-switch>
+					<ul>
+						<li>{{text.id[language]}}</li>
+						<li>{{text.password[language]}}</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 		`,

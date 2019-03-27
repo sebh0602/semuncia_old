@@ -15,7 +15,10 @@
 
 .popupBackground > .popup{
 	background-color: white;
-
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 @media screen and (max-width: 499px){
@@ -57,4 +60,8 @@
 	min-width: 48px;
 	cursor:pointer;
 	padding:0;
+}
+
+.popupBackground > .popup > .popupContent{
+	width: 90%;
 }
