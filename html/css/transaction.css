@@ -6,6 +6,10 @@ div.date{
 	font-size: 1.25em;
 }
 
+div.date > span > input{
+	min-height: 0px;
+}
+
 div.transaction{
 	padding: 15px;
 	border-bottom: 1px solid black;
@@ -65,10 +69,12 @@ div.transaction > div.transactionBottom > div.bottomRight{
 div.transaction > div.transactionBottom > div.bottomRight > button.deleteButton{
 	width:80px;
 	height:30px;
+	min-height: 30px;
 	border-radius: 15px;
 	border: none;
 	background-color: #a9bcd0;
 	color: white;
+	padding:1px;
 }
 
 div.transaction > div.transactionBottom > div.bottomRight > div.editToggle div.toggleBackground{

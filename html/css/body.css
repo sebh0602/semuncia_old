@@ -9,3 +9,21 @@ html,body{
 
 	user-select: none;
 }
+
+input{
+	font-size: 1em;
+	min-width: 42px; /*48px - 2*2px border - 2*1px padding = 42px*/
+	min-height: 42px;
+}
+
+button{
+	min-width: 48px;
+	min-height: 48px;
+	background-color: #1e2749;
+	color:white;
+	font-size: 1em;
+	padding:10px;
+	cursor: pointer;
+	outline: none;
+	border: 2px solid black;
+}
