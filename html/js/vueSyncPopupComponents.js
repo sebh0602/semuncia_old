@@ -13,11 +13,12 @@ Vue.component("sync-popup",{
 					{{text.synchronisation[language]}}:
 						<toggle-switch v-model="config.sync.isActivated" :valueOne="false" :valueTwo="true" :symbolOne="'❌'" :symbolTwo="'✔️'" :colorOne="'#ffcccc'" :colorTwo="'#ccffcc'"></toggle-switch>
 					<br>
-					<input type="text" v-model="config.sync.id" :placeholder="text.id[language]">
+					<input type="text" v-model="config.sync.id" :placeholder="text.id[language]" size="10">
 					<button @click="generateID">{{text.newID[language]}}</button>
-					<ul>
-						<li>{{text.password[language]}}</li>
-					</ul>
+					<button @click="copyID">{{text.copy[language]}}</button>
+					<br>
+					<input type="password" :placeholder="text.password[language]">
+					<button>{{text.submit[language]}}</button>
 				</div>
 			</div>
 		</div>
@@ -39,6 +40,13 @@ Vue.component("sync-popup",{
 				s += String.fromCharCode(array[i]);
 			}
 			this.config.sync.id = btoa(s).split("+").join("-").split("/").join("_").slice(0,10);
+		},
+		copyID:function(){
+			//doesn't work in edge
+			navigator.clipboard.writeText(this.config.sync.id).then(function(){
+			},function(err){
+				console.log(err); //I could add a fallback here
+			});
 		}
 	}
 });

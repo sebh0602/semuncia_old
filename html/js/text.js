@@ -149,6 +149,10 @@ var text = {
 		en:"New ID",
 		de:"Neue ID"
 	},
+	copy:{
+		en:"Copy",
+		de:"Kopieren"
+	},
 	password:{
 		en:"Password",
 		de:"Passwort"

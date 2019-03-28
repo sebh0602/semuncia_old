@@ -65,3 +65,7 @@
 .popupBackground > .popup > .popupContent{
 	width: 90%;
 }
+
+.popupBackground > .popup > .popupContent input{
+	margin-bottom: 20px;
+}
