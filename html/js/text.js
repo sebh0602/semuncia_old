@@ -135,7 +135,7 @@ var text = {
 	},
 	balanceOverTime:{
 		en:"Balance over time",
-		de:"Aktueller Betrag im Lauf der Zeit"
+		de:"Betrag im Lauf der Zeit"
 	},
 	synchronisation:{
 		en:"Synchronisation",
@@ -144,6 +144,10 @@ var text = {
 	id:{
 		en:"ID",
 		de:"ID"
+	},
+	newID:{
+		en:"New ID",
+		de:"Neue ID"
 	},
 	password:{
 		en:"Password",
