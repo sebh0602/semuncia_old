@@ -17,8 +17,8 @@ Vue.component("sync-popup",{
 					<button @click="generateID">{{text.newID[language]}}</button>
 					<button @click="copyID">{{text.copy[language]}}</button>
 					<br>
-					<input type="password" :placeholder="text.password[language]">
-					<button>{{text.submit[language]}}</button>
+					<input type="password" :placeholder="text.password[language]" id="passwordEntry">
+					<button @click="saveKey">{{text.submit[language]}}</button>
 				</div>
 			</div>
 		</div>
@@ -47,6 +47,24 @@ Vue.component("sync-popup",{
 			},function(err){
 				console.log(err); //I could add a fallback here
 			});
+		},
+		saveKey:function(){
+			var password = btoa(document.getElementById("passwordEntry").value);
+			console.log(password);
+			var request = window.indexedDB.open("keyStore", 1);
+			request.onsuccess = function(event){
+				var db = event.target.result;
+				db.transaction("secretKey","readwrite").objectStore("secretKey").add({key:password});
+				console.log("success");
+			}
+			request.onerror = function(event){
+				console.log("error");
+			}
+			request.onupgradeneeded = function(event){
+				var db = event.target.result;
+				var objectStore = db.createObjectStore("secretKey");
+				console.log("create store")
+			}
 		}
 	}
 });
