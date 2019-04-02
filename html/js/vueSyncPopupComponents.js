@@ -19,6 +19,7 @@ Vue.component("sync-popup",{
 					<br>
 					<input type="password" :placeholder="text.password[language]" id="passwordEntry">
 					<button @click="saveKey">{{text.submit[language]}}</button>
+					<button @click="readKey">read</button>
 				</div>
 			</div>
 		</div>
@@ -54,7 +55,7 @@ Vue.component("sync-popup",{
 			var request = window.indexedDB.open("keyStore", 1);
 			request.onsuccess = function(event){
 				var db = event.target.result;
-				db.transaction("secretKey","readwrite").objectStore("secretKey").add({key:password});
+				db.transaction("secretKey","readwrite").objectStore("secretKey").add({id:"primary",AESKey:password});
 				console.log("success");
 			}
 			request.onerror = function(event){
@@ -62,8 +63,17 @@ Vue.component("sync-popup",{
 			}
 			request.onupgradeneeded = function(event){
 				var db = event.target.result;
-				var objectStore = db.createObjectStore("secretKey");
+				var objectStore = db.createObjectStore("secretKey",{keyPath:"id"});
 				console.log("create store")
+			}
+		},
+		readKey:function(){
+			var request = window.indexedDB.open("keyStore", 1);
+			request.onsuccess = function(event){
+				var db = event.target.result;
+				var request = db.transaction("secretKey").objectStore("secretKey").get("primary").onsuccess = function(event){
+					console.log(event.target.result.AESKey)
+				};
 			}
 		}
 	}
