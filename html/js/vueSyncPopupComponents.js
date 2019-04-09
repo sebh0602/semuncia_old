@@ -51,29 +51,27 @@ Vue.component("sync-popup",{
 		},
 		saveKey:function(){
 			var password = btoa(document.getElementById("passwordEntry").value);
-			console.log(password);
+			this.dbAction(function(db){
+				db.transaction("secretKey","readwrite").objectStore("secretKey").put({id:"aes",AESKey:password});
+			});
+		},
+		readKey:function(){
+			this.dbAction(function(db){
+				db.transaction("secretKey").objectStore("secretKey").get("aes").onsuccess = function(event){
+					console.log("Encrypted: " + event.target.result.AESKey);
+					console.log("Decrypted: " + atob(event.target.result.AESKey));
+				};
+			});
+		},
+		dbAction:function(action){
 			var request = window.indexedDB.open("keyStore", 1);
 			request.onsuccess = function(event){
 				var db = event.target.result;
-				db.transaction("secretKey","readwrite").objectStore("secretKey").add({id:"primary",AESKey:password});
-				console.log("success");
-			}
-			request.onerror = function(event){
-				console.log("error");
+				action(db)
 			}
 			request.onupgradeneeded = function(event){
 				var db = event.target.result;
 				var objectStore = db.createObjectStore("secretKey",{keyPath:"id"});
-				console.log("create store")
-			}
-		},
-		readKey:function(){
-			var request = window.indexedDB.open("keyStore", 1);
-			request.onsuccess = function(event){
-				var db = event.target.result;
-				var request = db.transaction("secretKey").objectStore("secretKey").get("primary").onsuccess = function(event){
-					console.log(event.target.result.AESKey)
-				};
 			}
 		}
 	}
