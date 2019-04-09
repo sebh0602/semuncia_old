@@ -17,7 +17,7 @@ Vue.component("sync-popup",{
 					<button @click="generateID">{{text.newID[language]}}</button>
 					<button @click="copyID">{{text.copy[language]}}</button>
 					<br>
-					<input type="password" :placeholder="text.password[language]" id="passwordEntry">
+					<input type="password" :placeholder="text.password[language]" id="passwordEntry" @keyup.enter="saveKey">
 					<button @click="saveKey">{{text.submit[language]}}</button>
 					<button @click="readKey">read</button>
 				</div>
@@ -51,6 +51,23 @@ Vue.component("sync-popup",{
 		},
 		saveKey:function(){
 			var password = btoa(document.getElementById("passwordEntry").value);
+
+			var te = new TextEncoder()
+			var impKey = await crypto.subtle.importKey(
+				"raw",
+				te.encode(password),
+				{name: "PBKDF2"},
+				true,
+				["deriveKey"]
+			);
+
+			crypto.subtle.exportKey("raw", impKey).then(function(printKey){
+				console.log(printKey);
+			},function(e){console.error(e);});
+
+
+
+
 			this.dbAction(function(db){
 				db.transaction("secretKey","readwrite").objectStore("secretKey").put({id:"aes",AESKey:password});
 			});
