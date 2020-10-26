@@ -1,5 +1,7 @@
 # semuncia
 
+**semuncia_old is a discontinued project. Once it had grown to a certain point, it became to cumbersome to use and maintain. Instead I created a new version which can be found at sebh0602/semuncia and on [semuncia.com]().**
+
 **semuncia is a work in progress**
 Once finished it will be...
 
